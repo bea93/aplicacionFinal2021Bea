@@ -41,7 +41,7 @@ if (isset($_REQUEST['Doxygen'])) {
 }
 
 //Creación del objeto usuarioActual con los datos almacenados en la sesión
-$oUsuarioActual = $_SESSION['usuarioDAW2LoginLogoffMulticapaPOO'];
+$oUsuarioActual = $_SESSION['usuarioDAW2AplicacionFinal'];
 //Variables que almacenan los datos del usuario
 $codUsuario = $oUsuarioActual->getCodUsuario();
 $descUsuario = $oUsuarioActual->getDescUsuario();

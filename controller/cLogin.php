@@ -76,7 +76,7 @@ if ($entradaOK) {
     
     $_SESSION['fechaHoraUltimaConexionAnterior'] = $oUsuario ->getFechaHoraUltimaConexion();
     $oUsuario = UsuarioPDO::registrarUltimaConexion($oUsuario ->getCodUsuario());
-    $_SESSION['usuarioDAW2LoginLogoffMulticapaPOO'] = $oUsuario;
+    $_SESSION['usuarioDAW2AplicacionFinal'] = $oUsuario;
     //Guardamos en la variable de sesión 'pagina' la ruta del controlador del inicio
     $_SESSION['paginaEnCurso'] = $controladores['inicio']; 
      //Redirige al index.php

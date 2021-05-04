@@ -54,7 +54,7 @@ $entradaOK = true;
 $errorDescripcion = "";
 
 //Creación del objeto usuarioActual con los datos almacenados en la sesión
-$oUsuarioActual = $_SESSION['usuarioDAW2LoginLogoffMulticapaPOO'];
+$oUsuarioActual = $_SESSION['usuarioDAW2AplicacionFinal'];
 //Variables que almacenan los datos del usuario
 $codUsuario = $oUsuarioActual->getCodUsuario();
 $numConexiones = $oUsuarioActual->getNumConexiones();
@@ -77,7 +77,7 @@ if(isset($_REQUEST['Aceptar'])){
 }
 //Si todo ha ido bien llamamos al método modificarUsuario, le pasamos los valores que necesita y volvemos a la página de inicio
 if($entradaOK){
-    $_SESSION['usuarioDAW2LoginLogoffMulticapaPOO']=UsuarioPDO::modificarUsuario($codUsuario, $_REQUEST['DescUsuario'], $imagenSubida);
+    $_SESSION['usuarioDAW2AplicacionFinal']=UsuarioPDO::modificarUsuario($codUsuario, $_REQUEST['DescUsuario'], $imagenSubida);
     $_SESSION['paginaEnCurso'] = $controladores['inicio'];
     header('Location: index.php');
     exit;

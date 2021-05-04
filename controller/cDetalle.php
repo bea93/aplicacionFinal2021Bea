@@ -1,7 +1,7 @@
 <?php
 $_SESSION['paginaAnterior'] = $controladores['detalle'];
 //Si no hay una sesión iniciada te manda al Login
-if(!isset($_SESSION['usuarioDAW2LoginLogoffMulticapaPOO'])){ 
+if(!isset($_SESSION['usuarioDAW2AplicacionFinal'])){ 
     header('Location: index.php');
     exit;
 }

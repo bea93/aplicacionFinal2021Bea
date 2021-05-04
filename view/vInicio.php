@@ -8,7 +8,8 @@
         <button class="logout" type="submit" name='cerrarSesion'>Cerrar Sesión</button>
         <button class="logout" type="submit" name='detalle'>Detalle</button>
         <button class="logout" type="submit" name='editar'>Editar Perfil</button><br>
-        <button class="logout" id="borrarCuenta" type="submit" name='BorrarCuenta'>Borrar Cuenta</button><br>
-        <button class="logout" id="mtoDep" type="submit" name='MtoDepartamentos'>Mto Departamentos</button>
+        <button class="logout" id="borrarCuenta" type="submit" name='borrarCuenta'>Borrar Cuenta</button><br>
+        <button class="logout" id="mtoDep" type="submit" name='mtoDepartamentos'>Mto Departamentos</button>
+        <button class="logout" id="rest" type="submit" name='rest'>REST</button>
     </form>
 </div>
