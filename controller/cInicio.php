@@ -45,7 +45,7 @@ if (isset($_REQUEST['mtoDepartamentos'])) {
 //Si se ha pulsado el botón REST
 if (isset($_REQUEST['rest'])) {
     //Guardamos en la variable de sesión 'pagina' la ruta del controlador del editor de contraseña
-    $_SESSION['paginaEnCurso'] = $controladores['wip'];
+    $_SESSION['paginaEnCurso'] = $controladores['rest'];
     header('Location: index.php');
     exit;
 }
