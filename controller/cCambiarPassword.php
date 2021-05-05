@@ -1,5 +1,5 @@
 <?php 
-$_SESSION['paginaAnterior'] = $controladores['cambiarPassword'];
+
 //Si se ha pulsado el botón Cancelar
 if(isset($_REQUEST['Cancelar'])){
     //Guardamos en la variable de sesión 'pagina' la ruta del controlador de la edición de usuario
@@ -100,5 +100,6 @@ if($entradaOK){
 
 //Guardamos en la variable vistaEnCurso la vista que queremos implementar
 $vistaEnCurso = $vistas['cambiarPassword']; 
-
 require_once $vistas['layout'];
+
+$_SESSION['paginaAnterior'] = $controladores['cambiarPassword'];

@@ -1,5 +1,5 @@
 <?php
-$_SESSION['paginaAnterior'] = $controladores['editar'];
+
 //Si se ha pulsado el botón Cancelar
 if(isset($_REQUEST['Cancelar'])){
     //Guardamos en la variable de sesión 'pagina' la ruta del controlador del inicio
@@ -86,3 +86,5 @@ if($entradaOK){
 //Guardamos en la variable vistaEnCurso la vista que queremos implementar
 $vistaEnCurso = $vistas['editar']; 
 require_once $vistas['layout'];
+
+$_SESSION['paginaAnterior'] = $controladores['editar'];

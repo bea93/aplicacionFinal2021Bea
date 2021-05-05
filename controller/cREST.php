@@ -4,6 +4,36 @@ if (isset($_REQUEST['Cancelar'])) {
     header('Location: index.php');
     exit;
 }
+//Si se ha pulsado en Tecnologías
+if (isset($_REQUEST['Tecnologias'])) {
+    //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
+    $_SESSION['paginaEnCurso'] = $controladores['wip'];
+    header("Location: index.php");
+    exit;
+}
+//Si se ha pulsado en PHPDoc
+if (isset($_REQUEST['PHPDoc'])) {
+    //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
+    $_SESSION['paginaEnCurso'] = $controladores['wip'];
+    header("Location: index.php");
+    exit;
+}
+
+//Si se ha pulsado en RSS
+if (isset($_REQUEST['RSS'])) {
+    //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
+    $_SESSION['paginaEnCurso'] = $controladores['wip'];
+    header("Location: index.php");
+    exit;
+}
+
+//Si se ha pulsado en Doxygen
+if (isset($_REQUEST['Doxygen'])) {
+    //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
+    $_SESSION['paginaEnCurso'] = $controladores['wip'];
+    header("Location: index.php");
+    exit;
+}
 
 //Si se ha pulsado el botón Aceptar
 if (isset($_REQUEST['Aceptar'])) { 
@@ -28,5 +58,8 @@ if (is_null($ValoresPersonaje)) {
     $generoR = $ValoresPersonaje['gender'];
 }
 
-$vistaEnCurso = $vistas['rest']; //variable que contiene la vista que va a ejecutarse
-require_once $vistas['layout']; //llamamos al layout
+//Guardamos en la variable vistaEnCurso la vista que queremos implementar
+$vistaEnCurso = $vistas['rest'];
+require_once $vistas['layout'];
+
+$_SESSION['paginaAnterior'] = $controladores['rest'];

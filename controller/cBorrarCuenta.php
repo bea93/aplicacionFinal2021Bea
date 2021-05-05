@@ -1,5 +1,5 @@
 <?php
-$_SESSION['paginaAnterior'] = $controladores['borrarCuenta'];
+
 //Si se ha pulsado el botón Cancelar
 if(isset($_REQUEST['Cancelar'])){
     //Guardamos en la variable de sesión 'pagina' la ruta del controlador de la edición del usuario
@@ -58,5 +58,6 @@ if(isset($_REQUEST['Aceptar'])){
 
 //Guardamos en la variable vistaEnCurso la vista que queremos implementar
 $vistaEnCurso = $vistas['borrarCuenta']; 
-
 require_once $vistas['layout'];
+
+$_SESSION['paginaAnterior'] = $controladores['borrarCuenta'];

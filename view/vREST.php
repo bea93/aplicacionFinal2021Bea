@@ -13,7 +13,7 @@
         <input type="number" name="numero" min="1" placeholder="Número de personaje"/><br>
         <div>
             <button class="button" type="submit" name="Aceptar">Aceptar</button>
-            <button class="button" type="submit" name="Cancelar">Cancelar</button> 
+            <button class="button" type="submit" name="Cancelar">Volver</button> 
         </div>
     </form>
 </div>

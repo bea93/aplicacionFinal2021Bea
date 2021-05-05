@@ -1,5 +1,5 @@
 <?php
-$_SESSION['paginaAnterior'] = $controladores['detalle'];
+
 //Si no hay una sesión iniciada te manda al Login
 if(!isset($_SESSION['usuarioDAW2AplicacionFinal'])){ 
     header('Location: index.php');
@@ -46,5 +46,6 @@ if (isset($_REQUEST['Doxygen'])) {
 
 //Guardamos en la variable vistaEnCurso la vista que queremos implementar
 $vistaEnCurso = $vistas['detalle']; 
-
 require_once $vistas['layout'];
+
+$_SESSION['paginaAnterior'] = $controladores['detalle'];

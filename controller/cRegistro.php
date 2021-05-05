@@ -1,6 +1,5 @@
 <?php
-$_SESSION['paginaAnterior'] = $controladores['registro'];
-$_SESSION['paginaEnCursoSinRegistro'] = $controladores['registro'];
+
 //Si se ha pulsado Cancelar
 if(isset($_REQUEST['Cancelar'])){
     //Guardamos en la variable de sesión 'pagina' la ruta del controlador del login
@@ -100,5 +99,7 @@ if ($entradaOK) {
 
 //Guardamos en la variable vistaEnCurso la vista que queremos implementar
 $vistaEnCurso = $vistas['registro']; 
-
 require_once $vistas['layout'];
+
+$_SESSION['paginaAnterior'] = $controladores['registro'];
+$_SESSION['paginaEnCursoSinRegistro'] = $controladores['registro'];

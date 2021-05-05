@@ -1,5 +1,5 @@
 <?php
-$_SESSION['paginaAnterior'] = $controladores['inicio'];
+
 //Si el usuario no ha iniciado sesión se le redirige al login.php
 if(!isset($_SESSION['usuarioDAW2AplicacionFinal'])){ 
     header('Location: index.php');
@@ -92,3 +92,5 @@ $imagenUsuario = $oUsuarioActual->getImagenPerfil();
 //Guardamos en la variable vistaEnCurso la vista que queremos implementar
 $vistaEnCurso = $vistas['inicio']; 
 require_once $vistas['layout'];
+
+$_SESSION['paginaAnterior'] = $controladores['inicio'];
