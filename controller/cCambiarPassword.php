@@ -1,5 +1,5 @@
 <?php 
-$_SESSION['paginaAnterior'] = $controladores['cambiarPassword'];
+
 //Si se ha pulsado el botón Cancelar
 if(isset($_REQUEST['Cancelar'])){
     //Guardamos en la variable de sesión 'pagina' la ruta del controlador de la edición de usuario
@@ -49,7 +49,7 @@ $aErrores = [
 ];
 
 //Creación del objeto usuarioActual con los datos almacenados en la sesión
-$oUsuarioActual = $_SESSION['usuarioDAW2LoginLogoffMulticapaPOO'];
+$oUsuarioActual = $_SESSION['usuarioDAW2AplicacionFinal'];
 
 //Variables que almacenan los datos del usuario
 $codUsuario = $oUsuarioActual->getCodUsuario();
@@ -91,7 +91,7 @@ if(isset($_REQUEST['Aceptar'])){
 
 //Si todo ha ido bien llamamos al método cambiarPassword y le pasamos el código de usuario y la contraseña nueva para que ejecute el UPDATE en la BBDD
 if($entradaOK){
-    $_SESSION['usuarioDAW2LoginLogoffMulticapaPOO'] = UsuarioPDO::cambiarPassword($codUsuario, $_REQUEST['NuevaPassword']);
+    $_SESSION['usuarioDAW2AplicacionFinal'] = UsuarioPDO::cambiarPassword($codUsuario, $_REQUEST['NuevaPassword']);
     //Guardamos en la variable de sesión 'pagina' la ruta del controlador de la edición de usuarios
     $_SESSION['paginaEnCurso'] = $controladores['editar']; 
     header('Location: index.php');
@@ -100,5 +100,6 @@ if($entradaOK){
 
 //Guardamos en la variable vistaEnCurso la vista que queremos implementar
 $vistaEnCurso = $vistas['cambiarPassword']; 
-
 require_once $vistas['layout'];
+
+$_SESSION['paginaAnterior'] = $controladores['cambiarPassword'];

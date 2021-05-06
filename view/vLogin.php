@@ -1,4 +1,4 @@
-<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Login</h2>
+<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Iniciar sesión</h2>
     <form name="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <div class="form-login">
             <label for="CodUsuario">Usuario:</label><br>

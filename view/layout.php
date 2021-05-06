@@ -36,12 +36,12 @@
                 <h1 id="fh5co-logo"><a href="../../index.html"><img src="webroot/images/logo.png"></a></h1>
                 <nav id="fh5co-main-menu" role="navigation">
                     <ul>
-                        <li class="fh5co-active">Login/Logout Multicapa POO</li>
+                        <li class="fh5co-active">Aplicación Final<br>2021</li>
                     </ul>
                 </nav>
                 <div class="fh5co-footer">
                     <form action = "<?php echo $_SERVER['PHP_SELF']; ?>" method = "post">
-                        <a href="https://github.com/bea93/loginLogoutPOOMulticapa/tree/developer" target="_blank"><p>GitHub</p></a>
+                        <a href="https://github.com/bea93/aplicacionFinal2021Bea/tree/developer" target="_blank"><p>GitHub</p></a>
                         <input type="submit" class="botonesWIP" value="Tecnologías Usadas" name="Tecnologias"><br>
                         <input type="submit" class="botonesWIP" value="PHPDoc" name="PHPDoc"><br>
                         <input type="submit" class="botonesWIP" value="RSS" name="RSS"><br>

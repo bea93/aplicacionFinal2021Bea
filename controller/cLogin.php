@@ -27,7 +27,7 @@ if (isset($_REQUEST['Tecnologias'])) {
 //Si se ha pulsado en PHPDoc
 if (isset($_REQUEST['PHPDoc'])) {
     //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
-    $_SESSION['paginaEnCurso'] = $controladores['wip'];
+    $_SESSION['paginaEnCursoSinRegistro'] = $controladores['wip'];
     header("Location: index.php");
     exit;
 }
@@ -35,7 +35,7 @@ if (isset($_REQUEST['PHPDoc'])) {
 //Si se ha pulsado en RSS
 if (isset($_REQUEST['RSS'])) {
     //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
-    $_SESSION['paginaEnCurso'] = $controladores['wip'];
+    $_SESSION['paginaEnCursoSinRegistro'] = $controladores['wip'];
     header("Location: index.php");
     exit;
 }
@@ -43,7 +43,7 @@ if (isset($_REQUEST['RSS'])) {
 //Si se ha pulsado en Doxygen
 if (isset($_REQUEST['Doxygen'])) {
     //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
-    $_SESSION['paginaEnCurso'] = $controladores['wip'];
+    $_SESSION['paginaEnCursoSinRegistro'] = $controladores['wip'];
     header("Location: index.php");
     exit;
 }
@@ -76,7 +76,7 @@ if ($entradaOK) {
     
     $_SESSION['fechaHoraUltimaConexionAnterior'] = $oUsuario ->getFechaHoraUltimaConexion();
     $oUsuario = UsuarioPDO::registrarUltimaConexion($oUsuario ->getCodUsuario());
-    $_SESSION['usuarioDAW2LoginLogoffMulticapaPOO'] = $oUsuario;
+    $_SESSION['usuarioDAW2AplicacionFinal'] = $oUsuario;
     //Guardamos en la variable de sesión 'pagina' la ruta del controlador del inicio
     $_SESSION['paginaEnCurso'] = $controladores['inicio']; 
      //Redirige al index.php
@@ -86,7 +86,6 @@ if ($entradaOK) {
 
 //Guardamos en la variable vistaEnCurso la vista que queremos implementar
 $vistaEnCurso = $vistas['login']; 
-
 require_once $vistas['layout'];
 
 $_SESSION['paginaAnterior'] = $controladores['login'];

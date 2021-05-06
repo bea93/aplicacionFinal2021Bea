@@ -25,6 +25,10 @@ body {
     color: black;
 }
 
+#formRest{
+    float: left;
+}
+
 .desactivado{
     background-color: silver;
 }
@@ -39,6 +43,9 @@ input{
 }
 #borrarCuenta{
     background-color: #a94442;
+}
+#rest{
+    background-color: #eea236;
 }
 
 button{
@@ -275,6 +282,14 @@ figure {
 }
 #fh5co-main .fh5co-narrow-content {
   position: relative;
+  width: 80%;
+  margin: 0 auto;
+  padding: 4em 0;
+}
+#fh5co-main .botones {
+  position: absolute;
+  left: 55%;
+  top: 0;
   width: 80%;
   margin: 0 auto;
   padding: 4em 0;
