@@ -17,37 +17,6 @@ if (isset($_REQUEST['Registrarse'])) {
     exit;
 }
 
-//Si se ha pulsado en Tecnologías
-if (isset($_REQUEST['Tecnologias'])) {
-    //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
-    $_SESSION['paginaEnCursoSinRegistro'] = $controladores['wip'];
-    header("Location: index.php");
-    exit;
-}
-//Si se ha pulsado en PHPDoc
-if (isset($_REQUEST['PHPDoc'])) {
-    //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
-    $_SESSION['paginaEnCursoSinRegistro'] = $controladores['wip'];
-    header("Location: index.php");
-    exit;
-}
-
-//Si se ha pulsado en RSS
-if (isset($_REQUEST['RSS'])) {
-    //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
-    $_SESSION['paginaEnCursoSinRegistro'] = $controladores['wip'];
-    header("Location: index.php");
-    exit;
-}
-
-//Si se ha pulsado en Doxygen
-if (isset($_REQUEST['Doxygen'])) {
-    //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
-    $_SESSION['paginaEnCursoSinRegistro'] = $controladores['wip'];
-    header("Location: index.php");
-    exit;
-}
-
 //Comprueba que el usuario le ha dado al botón de IniciarSesion y valida la entrada de todos los campos
 if (isset($_REQUEST["IniciarSesion"])) { 
     $aErrores['CodUsuario'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['CodUsuario'], 15, 3, OBLIGATORIO);

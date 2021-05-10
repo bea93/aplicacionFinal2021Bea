@@ -38,7 +38,7 @@ if (isset($_REQUEST['borrarCuenta'])) {
 //Si se ha pulsado el botón MtoDepartamentos
 if (isset($_REQUEST['mtoDepartamentos'])) {
     //Guardamos en la variable de sesión 'pagina' la ruta del controlador del editor de contraseña
-    $_SESSION['paginaEnCurso'] = $controladores['wip'];
+    $_SESSION['paginaEnCurso'] = $controladores['mtoDepartamentos'];
     header('Location: index.php');
     exit;
 }
@@ -47,37 +47,6 @@ if (isset($_REQUEST['rest'])) {
     //Guardamos en la variable de sesión 'pagina' la ruta del controlador del editor de contraseña
     $_SESSION['paginaEnCurso'] = $controladores['rest'];
     header('Location: index.php');
-    exit;
-}
-
-//Si se ha pulsado en Tecnologías
-if (isset($_REQUEST['Tecnologias'])) {
-    //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
-    $_SESSION['paginaEnCurso'] = $controladores['wip'];
-    header("Location: index.php");
-    exit;
-}
-//Si se ha pulsado en PHPDoc
-if (isset($_REQUEST['PHPDoc'])) {
-    //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
-    $_SESSION['paginaEnCurso'] = $controladores['wip'];
-    header("Location: index.php");
-    exit;
-}
-
-//Si se ha pulsado en RSS
-if (isset($_REQUEST['RSS'])) {
-    //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
-    $_SESSION['paginaEnCurso'] = $controladores['wip'];
-    header("Location: index.php");
-    exit;
-}
-
-//Si se ha pulsado en Doxygen
-if (isset($_REQUEST['Doxygen'])) {
-    //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
-    $_SESSION['paginaEnCurso'] = $controladores['wip'];
-    header("Location: index.php");
     exit;
 }
 

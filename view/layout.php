@@ -28,7 +28,7 @@
         <link href="webroot/css/style.css" rel="stylesheet" type="text/css"/>
         <!-- Modernizr JS -->
         <script src="webroot/js/modernizr-2.6.2.min.js"></script>
-
+        
     </head>
     <body>
         <div id="fh5co-page">
@@ -40,14 +40,13 @@
                     </ul>
                 </nav>
                 <div class="fh5co-footer">
-                    <form action = "<?php echo $_SERVER['PHP_SELF']; ?>" method = "post">
-                        <a href="https://github.com/bea93/aplicacionFinal2021Bea/tree/developer" target="_blank"><p>GitHub</p></a>
-                        <input type="submit" class="botonesWIP" value="Tecnologías Usadas" name="Tecnologias"><br>
-                        <input type="submit" class="botonesWIP" value="PHPDoc" name="PHPDoc"><br>
-                        <input type="submit" class="botonesWIP" value="RSS" name="RSS"><br>
-                        <input type="submit" class="botonesWIP" value="Doxygen" name="Doxygen">
-                        <a href="http://daw213.sauces.local/index.html"><p>&copy; 2021 Beatriz Merino Macía.</p></a>
-                    </form>
+                    <a href="https://github.com/bea93/aplicacionFinal2021Bea/tree/developer" target="_blank"><p>GitHub</p></a>
+                    <a href="doc/requisitos.pdf" target="_blank"><p>Catálogo de requisitos</p></a>
+                    <a href="doc/tema2.pdf" target="_blank"><p>Tecnologías usadas</p></a>
+                    <a href="doc/phpDoc/index.html" target="_blank"><p>PHPDoc</p></a>
+                    <a href="webroot/rss/rss.xml" target="_blank"><p>RSS</p></a>
+                    <a href="doc/doxygen/html/index.html" target="_blank"><p>Doxygen</p></a>
+                    <a href="http://daw213.sauces.local/index.html"><p>&copy; 2021 Beatriz Merino Macía.</p></a>
                 </div>
             </aside>
             <div id="fh5co-main">

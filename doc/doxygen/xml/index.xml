@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="es">
+  <compound refid="class_d_b_p_d_o" kind="class"><name>DBPDO</name>
+    <member refid="class_d_b_p_d_o_1a2abcf547df56694329fba928939a4259" kind="function"><name>ejecutaConsulta</name></member>
+  </compound>
+  <compound refid="class_r_e_s_t" kind="class"><name>REST</name>
+    <member refid="class_r_e_s_t_1a10ab762aed5f74ea9f1b73547781ffa3" kind="function"><name>personajeRM</name></member>
+    <member refid="class_r_e_s_t_1a7c77250bc0a0277bc2a8217ed23bb94f" kind="function"><name>libros</name></member>
+  </compound>
+  <compound refid="class_usuario" kind="class"><name>Usuario</name>
+    <member refid="class_usuario_1a128d2cdcace850d9c61238f00c660bc6" kind="variable"><name>$codUsuario</name></member>
+    <member refid="class_usuario_1a607686ef9f99ea7c42f4f3dd3dbb2b0d" kind="variable"><name>$password</name></member>
+    <member refid="class_usuario_1ac077249f5727727e9c890fd6556f7ffe" kind="variable"><name>$descUsuario</name></member>
+    <member refid="class_usuario_1a46739459d70422aaa3c3d151111fed4c" kind="variable"><name>$numConexiones</name></member>
+    <member refid="class_usuario_1ab508b0776c849059a28d6d63a6af8cef" kind="variable"><name>$fechaHoraUltimaConexion</name></member>
+    <member refid="class_usuario_1a1a8ae81eb5f167bf34674fc3f5427e87" kind="variable"><name>$perfil</name></member>
+    <member refid="class_usuario_1a4cc8146ccb2611cbc328defdf1ab0257" kind="variable"><name>$imagenPerfil</name></member>
+    <member refid="class_usuario_1a890e4b6b77a0fd566b46b3fa4fa0efd0" kind="function"><name>__construct</name></member>
+    <member refid="class_usuario_1af6744d9c5d29fc68b5e9a5fb2fab245e" kind="function"><name>getCodUsuario</name></member>
+    <member refid="class_usuario_1a04e0957baeb7acde9c0c86556da2d43f" kind="function"><name>getPassword</name></member>
+    <member refid="class_usuario_1a38bc2254f1841238d4f4a4851ea5258d" kind="function"><name>getDescUsuario</name></member>
+    <member refid="class_usuario_1af98dbe147730701ce756e83e77e4dcb0" kind="function"><name>getNumConexiones</name></member>
+    <member refid="class_usuario_1abcc0f031ac30c407e3c8daeeed1adb0d" kind="function"><name>getFechaHoraUltimaConexion</name></member>
+    <member refid="class_usuario_1a22a2936d4856077edac47e6dbf430bab" kind="function"><name>getPerfil</name></member>
+    <member refid="class_usuario_1af12c7390069b16adfb5b0dce98053cd7" kind="function"><name>getImagenPerfil</name></member>
+    <member refid="class_usuario_1a42d805d74359e24d97b4883618001f32" kind="function"><name>setCodUsuario</name></member>
+    <member refid="class_usuario_1a3e35c8d3dbb2c513c618a664389e0926" kind="function"><name>setPassword</name></member>
+    <member refid="class_usuario_1aea6878269f98da68495e26d45412e85e" kind="function"><name>setDescUsuario</name></member>
+    <member refid="class_usuario_1a613969fad4a0c809c43fcdfbf3b9bc6e" kind="function"><name>setNumConexiones</name></member>
+    <member refid="class_usuario_1a01f22ff506a899f494fd0de79979b881" kind="function"><name>setFechaHoraUltimaConexion</name></member>
+    <member refid="class_usuario_1a00bcf66571b2dd506829e45c6401feed" kind="function"><name>setPerfil</name></member>
+    <member refid="class_usuario_1a715e72e698d90973693afe67d145d4ee" kind="function"><name>setImagenPerfil</name></member>
+  </compound>
+  <compound refid="class_usuario_p_d_o" kind="class"><name>UsuarioPDO</name>
+    <member refid="class_usuario_p_d_o_1ae85b032587e9e5fa8844d0431f32578e" kind="function"><name>validarUsuario</name></member>
+    <member refid="class_usuario_p_d_o_1a7a5176f4bfba2cf39eca0462195676b8" kind="function"><name>altaUsuario</name></member>
+    <member refid="class_usuario_p_d_o_1ac8124814105beb061ff75b5acf763b63" kind="function"><name>registrarUltimaConexion</name></member>
+    <member refid="class_usuario_p_d_o_1a61b6180a245c2c4f17d5780989ff1c6e" kind="function"><name>modificarUsuario</name></member>
+    <member refid="class_usuario_p_d_o_1a22b6e8430b017ddbda961845fc5243c0" kind="function"><name>cambiarPassword</name></member>
+    <member refid="class_usuario_p_d_o_1ac08be54eb31f194fb1bdd1457a2c008e" kind="function"><name>borrarUsuario</name></member>
+    <member refid="class_usuario_p_d_o_1a52fa586fecf82d3f4df7ff5dac39afc8" kind="function"><name>validarCodNoExiste</name></member>
+    <member refid="class_usuario_p_d_o_1a73b3a77c92f0c2b53d5dacf4eb63486a" kind="function"><name>buscarUsuarioPorCod</name></member>
+  </compound>
+  <compound refid="_d_b_p_d_o_8php" kind="file"><name>DBPDO.php</name>
+  </compound>
+  <compound refid="_r_e_s_t_8php" kind="file"><name>REST.php</name>
+  </compound>
+  <compound refid="_usuario_8php" kind="file"><name>Usuario.php</name>
+  </compound>
+  <compound refid="_usuario_p_d_o_8php" kind="file"><name>UsuarioPDO.php</name>
+  </compound>
+  <compound refid="dir_3f14f6767c31cb4a1d22c13c18cc6fc3" kind="dir"><name>C:/Users/Usuario/Documents/Clase/DWES/servidorCasa/proyectoDWES/aplicacionFinal/model</name>
+  </compound>
+</doxygenindex>
