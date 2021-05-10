@@ -70,8 +70,12 @@ if (!is_null($libros)){
     $urlResumen = $libros['url'];
     $mensaje = null;
     //Si se ha pulsado el botón Buscar pero no se ha encontrado ningún libro del autor se mostrará un mensaje
-} else if (isset($_REQUEST['autor']) && $libros == null){
-    $mensaje = "No se ha encontrado ningún libro de ese autor";
+} else {
+    $titulo = null;
+    $resumen = null;
+    $fechaPublicacion = null;
+    $urlResumen = null;
+    $mensaje = "No se ha encontrado ningún libro de ese autor";;
 }
 
 //Guardamos en la variable vistaEnCurso la vista que queremos implementar

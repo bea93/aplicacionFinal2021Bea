@@ -20,7 +20,7 @@
             <p><span style="font-weight:bold;">Género del personaje: </span> <?php echo $generoR ?></p>   
         </div> 
         <div>
-            <input type="number" name="numero" min="1" placeholder="Número de personaje" value="<?php echo $_REQUEST['numero']; ?>"/>
+            <input type="number" name="numero" min="1" placeholder="Número de personaje"/>
             <button class="button" type="submit" name="Aceptar">Aceptar</button>
         </div>
     </form>
@@ -38,11 +38,11 @@
             <p><span style="font-weight:bold;">Resumen: </span> <?php echo $resumen ?></p>
             <p><span style="font-weight:bold;">Fecha de publicación: </span> <?php echo $fechaPublicacion ?></p>
             <p><span style="font-weight:bold;">URL con la crítica: </span> <a href="<?php echo $urlResumen ?>" target="blank"><?php echo $urlResumen ?></a></p>
-            <p style="font-weight:bold;"><?php echo $mensaje ?></p>
+            <p style="font-weight:bold; color: red"><?php echo $mensaje ?></p>
         </div>
         <div>
             <label for="autor">Autor:</label>
-            <input type="text" id="autor" name="autor" placeholder="Nombre del autor" value="<?php echo $_REQUEST['autor']; ?>">
+            <input type="text" id="autor" name="autor" placeholder="Nombre del autor">
             <button class="button" type="submit" name="Buscar">Buscar</button>
         </div>
     </form>
