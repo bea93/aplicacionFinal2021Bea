@@ -10,7 +10,24 @@ class REST {
      * @return type array que contiene información sobre el personaje. 
      */
     public static function personajeRM($number) {
-        return json_decode(file_get_contents("https://rickandmortyapi.com/api/character/$number"), true);
+        
+        try {
+            //Llamamos a la API y le pasamos el número introducido por el usuario
+            $resultado = file_get_contents("https://rickandmortyapi.com/api/character/$number", true);
+
+            //Si no se ha encontrado resultado o no se ha introducido número lanzamos una excepcion
+            if ($resultado == false || $number == null) {
+                throw new Exception("Error en la introducción de datos");
+            } else {
+                //Si se ha encontrado, almacenamos los datos obtenidos de la API en un array y lo devolvemos
+                $aPersonaje = json_decode($resultado, true);
+                return $aPersonaje;
+            }
+        } catch (Exception $excepcion) {
+            //Asignamos a un array el mensaje de error de la excepción y lo devolvemos
+            $respuesta = $excepcion->getMessage(); 
+            return $respuesta;
+        }
     }
     
     

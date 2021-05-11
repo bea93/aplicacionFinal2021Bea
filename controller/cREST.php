@@ -1,10 +1,4 @@
 <?php
-if (isset($_REQUEST['Cancelar'])) {
-    $_SESSION['paginaEnCurso'] = $controladores['inicio']; // guardamos en la variable de sesion 'pagina' la ruta del controlador del login
-    header('Location: index.php');
-    exit;
-}
-
 //Si se ha pulsado el botón Aceptar llamamos a la API y le pasamos el número introducido por el usuario
 if (isset($_REQUEST['Aceptar'])){
     $ValoresPersonaje = REST::personajeRM($_REQUEST['numero']);
@@ -45,7 +39,7 @@ if (!is_null($libros)){
     $resumen = null;
     $fechaPublicacion = null;
     $urlResumen = null;
-    $mensaje = "No se ha encontrado ningún libro de ese autor";;
+    $mensaje = "No se ha encontrado ningún libro de ese autor";
 }
 
 //Guardamos en la variable vistaEnCurso la vista que queremos implementar

@@ -5,7 +5,6 @@ if(!isset($_SESSION['usuarioDAW2AplicacionFinal'])){
     header('Location: index.php');
     exit;
 }
-
 //Si se ha pulsado el botón de Cerrar Sesión
 if (isset($_REQUEST['cerrarSesion'])) {
     //Destruye todos los datos asociados a la sesión
@@ -38,7 +37,7 @@ if (isset($_REQUEST['borrarCuenta'])) {
 //Si se ha pulsado el botón MtoDepartamentos
 if (isset($_REQUEST['mtoDepartamentos'])) {
     //Guardamos en la variable de sesión 'pagina' la ruta del controlador del editor de contraseña
-    $_SESSION['paginaEnCurso'] = $controladores['mtoDepartamentos'];
+    $_SESSION['paginaEnCurso'] = $controladores['wip'];
     header('Location: index.php');
     exit;
 }

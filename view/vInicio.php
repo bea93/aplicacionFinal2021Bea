@@ -12,8 +12,8 @@
 </article>
 <div>
     <form name="logout" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <button class="logout" type="submit" name='detalle'>Detalle</button><br>
-        <button class="logout" id="mtoDep" type="submit" name='mtoDepartamentos'>Mto Departamentos</button><br>
+        <button class="logout" type="submit" name='detalle'>Detalle</button>
+        <button class="logout" id="mtoDep" type="submit" name='mtoDepartamentos'>Mto Departamentos</button>
         <button class="logout" id="rest" type="submit" name='rest'>REST</button>
     </form>
 </div>
