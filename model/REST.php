@@ -1,4 +1,14 @@
 <?php
+/**
+ * Class REST
+ *
+ * Clase que se utilizará para llamar a las distintas API REST del proyecto 
+ * 
+ * @author Beatriz Merino
+ * @since 1.0
+ * @copyright 09/05/2021
+ * @version 1.0
+ */
 
 class REST {
     
@@ -10,24 +20,7 @@ class REST {
      * @return type array que contiene información sobre el personaje. 
      */
     public static function personajeRM($number) {
-        
-        try {
-            //Llamamos a la API y le pasamos el número introducido por el usuario
-            $resultado = file_get_contents("https://rickandmortyapi.com/api/character/$number", true);
-
-            //Si no se ha encontrado resultado o no se ha introducido número lanzamos una excepcion
-            if ($resultado == false || $number == null) {
-                throw new Exception("Error en la introducción de datos");
-            } else {
-                //Si se ha encontrado, almacenamos los datos obtenidos de la API en un array y lo devolvemos
-                $aPersonaje = json_decode($resultado, true);
-                return $aPersonaje;
-            }
-        } catch (Exception $excepcion) {
-            //Asignamos a un array el mensaje de error de la excepción y lo devolvemos
-            $respuesta = $excepcion->getMessage(); 
-            return $respuesta;
-        }
+        return json_decode(file_get_contents("https://rickandmortyapi.com/api/character/$number"), true);
     }
     
     
@@ -38,18 +31,26 @@ class REST {
      * @return type array que contiene información sobre uno de sus libros. 
      */
     public static function libros($autor) {
-
+        //Creamos e inicializamos un array que almacenará los datos del libro a null
+        $aLibro = null;
+        
         //Variable que almacena una clave generada en internet y que necesitaremos para usar la api
         $key = 'hOzsi3xqFWqCMIbDznRf3I5UQ8GxlvPA';
         $resultado = file_get_contents('https://api.nytimes.com/svc/books/v3/reviews.json?author=' . $autor . '&api-key=' . $key);
-        $aDatos = json_decode($resultado, true);
+        $aJSON = json_decode($resultado, true);
 
         //Recorremos el array con la información del libro para sacar los datos que queremos mostrar
-        foreach ($aDatos as $campo => $valor) {
-            foreach ($valor as $dato) {  
+        foreach ($aJSON as $resultado => $informacion) {
+            foreach ($informacion as $datos) {  
+                $aLibro = [
+                    'Titulo' => $datos['book_title'],
+                    'Resumen' => $datos['summary'],
+                    'Fecha' => $datos['publication_dt'],
+                    'URL' => $datos['url']
+                ];
             }
         }
-        return $dato;
+        return $aLibro;
     }
 
 }
