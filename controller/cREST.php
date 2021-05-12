@@ -6,6 +6,10 @@ if (isset($_REQUEST['Volver'])) {
     header('Location: index.php');
     exit;
 }
+
+//Variable con el número del personaje
+$numeroPersonaje = null;
+
 //Si se ha pulsado el botón Aceptar llamamos a la API y le pasamos el número introducido por el usuario
 if (isset($_REQUEST['Aceptar'])){
     $ValoresPersonaje = REST::personajeRM($_REQUEST['numero']);
@@ -20,10 +24,10 @@ if (!is_null($ValoresPersonaje)) {
     $generoR = $ValoresPersonaje['gender'];
 }
 
-//Si se ha pulsado el botón Buscar llamamos a la API y le pasamos el autor introducido por el usuario
+/*Si se ha pulsado el botón Buscar llamamos a la API y le pasamos el autor introducido por el usuario
 if(isset($_REQUEST['Buscar'])){    
     $aLibro = Rest::libros($_REQUEST['autor']);    
-}
+}*/
 
 //Guardamos en la variable vistaEnCurso la vista que queremos implementar
 $vistaEnCurso = $vistas['rest'];

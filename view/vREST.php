@@ -23,12 +23,12 @@
         </div> 
         <div>
             <?php echo (isset($_REQUEST['numero']) && $ValoresPersonaje == null) ? "<p style='font-weight:bold; color:red;'>No se ha encontrado ningún personaje</p>" : null;?>
-            <input type="number" name="numero" min="1" placeholder="Número de personaje" value="<?php echo $_REQUEST['numero']; ?>"/>
+            <input type="number" name="numero" min="1" placeholder="Número de personaje" />
             <button class="button" type="submit" name="Aceptar">Aceptar</button>
         </div>
     </form>
 </div>
-<div style="width: 50%; float: left;">
+<!--<div style="width: 50%; float: left;">
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <h3>Crítica de libros del New York Times</h3>
         <h4>
@@ -50,5 +50,5 @@
             <input type="text" id="autor" name="autor" placeholder="Nombre del autor" value="<?php echo $_REQUEST['autor']; ?>">
             <button class="button" type="submit" name="Buscar">Buscar</button>
         </div>
-    </form>
+    </form>-->
 </div>

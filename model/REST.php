@@ -29,7 +29,7 @@ class REST {
      * 
      * @param type string nombre y apellido del autor que queramos buscar separados por un espacio.
      * @return type array que contiene información sobre uno de sus libros. 
-     */
+    
     public static function libros($autor) {
         //Creamos e inicializamos un array que almacenará los datos del libro a null
         $aLibro = null;
@@ -51,6 +51,6 @@ class REST {
             }
         }
         return $aLibro;
-    }
+    } */
 
 }
