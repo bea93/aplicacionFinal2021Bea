@@ -9,7 +9,7 @@
     }
     ?>
 </div>
-<form action = "<?php echo $_SERVER['PHP_SELF']; ?>" method = "post">
+<form action = "<?php echo $_SERVER['PHP_SELF']; ?>" method = "post" enctype="multipart/form-data">
     <fieldset>
         <label for="CodUsuario">Código del Usuario</label><br>
                 <input class="desactivado" type="text" id="CodUsuario" name="CodUsuario" readonly value="<?php echo $codUsuario; ?>">
