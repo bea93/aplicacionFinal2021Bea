@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['personajerm_57',['personajeRM',['../class_r_e_s_t.html#a10ab762aed5f74ea9f1b73547781ffa3',1,'REST']]]
+  ['registrarultimaconexion_95',['registrarUltimaConexion',['../class_usuario_p_d_o.html#ac8124814105beb061ff75b5acf763b63',1,'UsuarioPDO']]],
+  ['rehabilitadepartamento_96',['rehabilitaDepartamento',['../class_departamento_p_d_o.html#adf608934155247cc598e804615deacdc',1,'DepartamentoPDO']]]
 ];

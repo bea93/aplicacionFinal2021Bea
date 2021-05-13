@@ -3,9 +3,9 @@
 \doxysubsection*{Métodos públicos estáticos}
 \begin{DoxyCompactItemize}
 \item 
-static \mbox{\hyperlink{class_r_e_s_t_a10ab762aed5f74ea9f1b73547781ffa3}{personaje\+RM}} (\$number)
+static \mbox{\hyperlink{class_r_e_s_t_a925103cfbd70042544f63a9b5e15e738}{get\+\_\+http\+\_\+response\+\_\+code}} (\$url)
 \item 
-static \mbox{\hyperlink{class_r_e_s_t_a7c77250bc0a0277bc2a8217ed23bb94f}{libros}} (\$autor)
+static \mbox{\hyperlink{class_r_e_s_t_a10ab762aed5f74ea9f1b73547781ffa3}{personaje\+RM}} (\$number)
 \end{DoxyCompactItemize}
 
 
@@ -29,21 +29,21 @@ Beatriz Merino
 
 
 \doxysubsection{Documentación de las funciones miembro}
-\mbox{\Hypertarget{class_r_e_s_t_a7c77250bc0a0277bc2a8217ed23bb94f}\label{class_r_e_s_t_a7c77250bc0a0277bc2a8217ed23bb94f}} 
-\index{REST@{REST}!libros@{libros}}
-\index{libros@{libros}!REST@{REST}}
-\doxysubsubsection{\texorpdfstring{libros()}{libros()}}
-{\footnotesize\ttfamily static libros (\begin{DoxyParamCaption}\item[{}]{\$autor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\Hypertarget{class_r_e_s_t_a925103cfbd70042544f63a9b5e15e738}\label{class_r_e_s_t_a925103cfbd70042544f63a9b5e15e738}} 
+\index{REST@{REST}!get\_http\_response\_code@{get\_http\_response\_code}}
+\index{get\_http\_response\_code@{get\_http\_response\_code}!REST@{REST}}
+\doxysubsubsection{\texorpdfstring{get\_http\_response\_code()}{get\_http\_response\_code()}}
+{\footnotesize\ttfamily static get\+\_\+http\+\_\+response\+\_\+code (\begin{DoxyParamCaption}\item[{}]{\$url }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Llama al servicio API \mbox{\hyperlink{class_r_e_s_t}{REST}}, que nos devuelve la información sobre un libro del autor indicado por el usuario
+Función que recoge el error de respuesta HTTP de una URL
 
 
 \begin{DoxyParams}{Parámetros}
-{\em type} & string nombre y apellido del autor que queramos buscar separados por un espacio. \\
+{\em type} & string URL de la página que queramos \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Devuelve}
-type array que contiene información sobre uno de sus libros. 
+type string de la posición 0 del array obtenido por get\+\_\+\+Headers con la función substr, la cadena y las posiciones de inicio y fin que le pasemos 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_r_e_s_t_a10ab762aed5f74ea9f1b73547781ffa3}\label{class_r_e_s_t_a10ab762aed5f74ea9f1b73547781ffa3}} 
 \index{REST@{REST}!personajeRM@{personajeRM}}

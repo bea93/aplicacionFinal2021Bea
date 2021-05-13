@@ -159,11 +159,11 @@
 
 <dl class="phpdocumentor-table-of-contents">
                     <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/REST.html#method_libros">libros()</a>
+    <a href="classes/REST.html#method_get_http_response_code">get_http_response_code()</a>
     <span>
                         &nbsp;: <abbr title="\type">type</abbr>    </span>
 </dt>
-<dd>Llama al servicio API REST, que nos devuelve la información sobre un libro del autor indicado por el usuario</dd>
+<dd>Función que recoge el error de respuesta HTTP de una URL</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/REST.html#method_personajeRM">personajeRM()</a>
@@ -192,28 +192,28 @@ de la serie Rick and Morty.</dd>
             -public
                                     -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_libros">
-        libros()
-        <a href="classes/REST.html#method_libros" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_get_http_response_code">
+        get_http_response_code()
+        <a href="classes/REST.html#method_get_http_response_code" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/REST.php"><a href="files/model-rest.html"><abbr title="model/REST.php">REST.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 </aside>
 
-        <p class="phpdocumentor-summary">Llama al servicio API REST, que nos devuelve la información sobre un libro del autor indicado por el usuario</p>
+        <p class="phpdocumentor-summary">Función que recoge el error de respuesta HTTP de una URL</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">libros</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$autor</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\type">type</abbr></span></code>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">get_http_response_code</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\type">type</abbr></span></code>
 
         <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$autor</span>
+                <span class="phpdocumentor-signature__argument__name">$url</span>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
@@ -226,7 +226,7 @@ de la serie Rick and Morty.</dd>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type"><abbr title="\type">type</abbr></span>
             &mdash;
-            <section class="phpdocumentor-description"><p>array que contiene información sobre uno de sus libros.</p>
+            <section class="phpdocumentor-description"><p>string de la posición 0 del array obtenido por get_Headers con la función substr, la cadena y las posiciones de inicio y fin que le pasemos</p>
 </section>
 
     
@@ -244,7 +244,7 @@ de la serie Rick and Morty.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/REST.php"><a href="files/model-rest.html"><abbr title="model/REST.php">REST.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 </aside>
 
         <p class="phpdocumentor-summary">Llama al servicio API REST, que nos devuelve la información de un personaje

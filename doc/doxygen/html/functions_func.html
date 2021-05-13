@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Aplicación Final 2021: Campos de datos - Funciones</title>
+<title>AplicacionFinal2021: Campos de datos - Funciones</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,9 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Aplicación Final 2021
+   <div id="projectname">AplicacionFinal2021
    </div>
-   <div id="projectbrief">Aplicación final del módulo DWES 2021</div>
+   <div id="projectbrief">Aplicación Final del módulo DWES curso 20/21</div>
   </td>
  </tr>
  </tbody>
@@ -62,30 +62,83 @@ $(function() {
 </div>
 
 <div class="contents">
-&#160;<ul>
+&#160;
+
+<h3><a id="index__5F"></a>- _ -</h3><ul>
 <li>__construct()
-: <a class="el" href="class_usuario.html#a890e4b6b77a0fd566b46b3fa4fa0efd0">Usuario</a>
+: <a class="el" href="class_departamento.html#ac260cba8b18c459870665bf8cdb8cd1a">Departamento</a>
+, <a class="el" href="class_usuario.html#a890e4b6b77a0fd566b46b3fa4fa0efd0">Usuario</a>
+</li>
+</ul>
+
+
+<h3><a id="index_a"></a>- a -</h3><ul>
+<li>altaDepartamento()
+: <a class="el" href="class_departamento_p_d_o.html#ab0df581dd80d3abec2db0c9080248583">DepartamentoPDO</a>
 </li>
 <li>altaUsuario()
 : <a class="el" href="class_usuario_p_d_o.html#a7a5176f4bfba2cf39eca0462195676b8">UsuarioPDO</a>
 </li>
+</ul>
+
+
+<h3><a id="index_b"></a>- b -</h3><ul>
+<li>bajaFisicaDepartamento()
+: <a class="el" href="class_departamento_p_d_o.html#a058b213078f3c967e05484329e5e985c">DepartamentoPDO</a>
+</li>
+<li>bajaLogicaDepartamento()
+: <a class="el" href="class_departamento_p_d_o.html#ac42544970d4189fca0975fa40f99cf02">DepartamentoPDO</a>
+</li>
 <li>borrarUsuario()
 : <a class="el" href="class_usuario_p_d_o.html#ac08be54eb31f194fb1bdd1457a2c008e">UsuarioPDO</a>
+</li>
+<li>buscaDepartamentoPorCod()
+: <a class="el" href="class_departamento_p_d_o.html#aaac21d70b7a66ce06902178c3b6e603f">DepartamentoPDO</a>
+</li>
+<li>buscaDepartamentosPorDesc()
+: <a class="el" href="class_departamento_p_d_o.html#a457251de61e4e12fcfdf3d9962deaddd">DepartamentoPDO</a>
 </li>
 <li>buscarUsuarioPorCod()
 : <a class="el" href="class_usuario_p_d_o.html#a73b3a77c92f0c2b53d5dacf4eb63486a">UsuarioPDO</a>
 </li>
+</ul>
+
+
+<h3><a id="index_c"></a>- c -</h3><ul>
 <li>cambiarPassword()
 : <a class="el" href="class_usuario_p_d_o.html#a22b6e8430b017ddbda961845fc5243c0">UsuarioPDO</a>
 </li>
+</ul>
+
+
+<h3><a id="index_e"></a>- e -</h3><ul>
 <li>ejecutaConsulta()
 : <a class="el" href="class_d_b_p_d_o.html#a2abcf547df56694329fba928939a4259">DBPDO</a>
+</li>
+</ul>
+
+
+<h3><a id="index_g"></a>- g -</h3><ul>
+<li>get_http_response_code()
+: <a class="el" href="class_r_e_s_t.html#a925103cfbd70042544f63a9b5e15e738">REST</a>
+</li>
+<li>getCodDepartamento()
+: <a class="el" href="class_departamento.html#a4c17dfa2be25810e84477c6ce051a127">Departamento</a>
 </li>
 <li>getCodUsuario()
 : <a class="el" href="class_usuario.html#af6744d9c5d29fc68b5e9a5fb2fab245e">Usuario</a>
 </li>
+<li>getDescDepartamento()
+: <a class="el" href="class_departamento.html#aea34946343ede8a630a5bbf7455e6274">Departamento</a>
+</li>
 <li>getDescUsuario()
 : <a class="el" href="class_usuario.html#a38bc2254f1841238d4f4a4851ea5258d">Usuario</a>
+</li>
+<li>getFechaBaja()
+: <a class="el" href="class_departamento.html#aa47a3cb459a3f1c83b6eef4bd606759a">Departamento</a>
+</li>
+<li>getFechaCreacion()
+: <a class="el" href="class_departamento.html#a343aca462cad9c0f21333c130db34bba">Departamento</a>
 </li>
 <li>getFechaHoraUltimaConexion()
 : <a class="el" href="class_usuario.html#abcc0f031ac30c407e3c8daeeed1adb0d">Usuario</a>
@@ -102,23 +155,57 @@ $(function() {
 <li>getPerfil()
 : <a class="el" href="class_usuario.html#a22a2936d4856077edac47e6dbf430bab">Usuario</a>
 </li>
-<li>libros()
-: <a class="el" href="class_r_e_s_t.html#a7c77250bc0a0277bc2a8217ed23bb94f">REST</a>
+<li>getVolumenNegocio()
+: <a class="el" href="class_departamento.html#a3143377e3a3b91c7140a3c534d62204a">Departamento</a>
+</li>
+</ul>
+
+
+<h3><a id="index_m"></a>- m -</h3><ul>
+<li>modificaDepartamento()
+: <a class="el" href="class_departamento_p_d_o.html#abfc4238dd98b7b0dac56401beb06c2d0">DepartamentoPDO</a>
 </li>
 <li>modificarUsuario()
 : <a class="el" href="class_usuario_p_d_o.html#a61b6180a245c2c4f17d5780989ff1c6e">UsuarioPDO</a>
 </li>
+</ul>
+
+
+<h3><a id="index_p"></a>- p -</h3><ul>
 <li>personajeRM()
 : <a class="el" href="class_r_e_s_t.html#a10ab762aed5f74ea9f1b73547781ffa3">REST</a>
 </li>
+</ul>
+
+
+<h3><a id="index_r"></a>- r -</h3><ul>
 <li>registrarUltimaConexion()
 : <a class="el" href="class_usuario_p_d_o.html#ac8124814105beb061ff75b5acf763b63">UsuarioPDO</a>
+</li>
+<li>rehabilitaDepartamento()
+: <a class="el" href="class_departamento_p_d_o.html#adf608934155247cc598e804615deacdc">DepartamentoPDO</a>
+</li>
+</ul>
+
+
+<h3><a id="index_s"></a>- s -</h3><ul>
+<li>setCodDepartamento()
+: <a class="el" href="class_departamento.html#ab47bf6df9e00dd38e08a2070dddcab13">Departamento</a>
 </li>
 <li>setCodUsuario()
 : <a class="el" href="class_usuario.html#a42d805d74359e24d97b4883618001f32">Usuario</a>
 </li>
+<li>setDescDepartamento()
+: <a class="el" href="class_departamento.html#a373bd80f97d862daf06bb7df33a4e99a">Departamento</a>
+</li>
 <li>setDescUsuario()
 : <a class="el" href="class_usuario.html#aea6878269f98da68495e26d45412e85e">Usuario</a>
+</li>
+<li>setFechaBaja()
+: <a class="el" href="class_departamento.html#a68c2222da2f038066702eb7906cd1bbf">Departamento</a>
+</li>
+<li>setFechaCreacion()
+: <a class="el" href="class_departamento.html#a621d85438e6f4cad85c6d2817834c7d8">Departamento</a>
 </li>
 <li>setFechaHoraUltimaConexion()
 : <a class="el" href="class_usuario.html#a01f22ff506a899f494fd0de79979b881">Usuario</a>
@@ -134,6 +221,16 @@ $(function() {
 </li>
 <li>setPerfil()
 : <a class="el" href="class_usuario.html#a00bcf66571b2dd506829e45c6401feed">Usuario</a>
+</li>
+<li>setVolumenNegocio()
+: <a class="el" href="class_departamento.html#a04a5f6da90892d5c07dd2d54a83a782b">Departamento</a>
+</li>
+</ul>
+
+
+<h3><a id="index_v"></a>- v -</h3><ul>
+<li>validaCodNoExiste()
+: <a class="el" href="class_departamento_p_d_o.html#aea852471ac0c465f1fce4ce37c7ba691">DepartamentoPDO</a>
 </li>
 <li>validarCodNoExiste()
 : <a class="el" href="class_usuario_p_d_o.html#a52fa586fecf82d3f4df7ff5dac39afc8">UsuarioPDO</a>

@@ -40,7 +40,7 @@
                     </ul>
                 </nav>
                 <div class="fh5co-footer">
-                    <a href="https://github.com/bea93/aplicacionFinal2021Bea/tree/developer" target="_blank"><p>GitHub</p></a>
+                    <a href="https://github.com/bea93/aplicacionFinal2021Bea/tree/main" target="_blank"><p>GitHub</p></a>
                     <a href="doc/requisitos.pdf" target="_blank"><p>Catálogo de requisitos</p></a>
                     <a href="doc/tema2.pdf" target="_blank"><p>Tecnologías usadas</p></a>
                     <a href="doc/phpDoc/index.html" target="_blank"><p>PHPDoc</p></a>

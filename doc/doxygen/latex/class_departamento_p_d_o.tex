@@ -1,0 +1,176 @@
+\hypertarget{class_departamento_p_d_o}{}\doxysection{Referencia de la Clase Departamento\+PDO}
+\label{class_departamento_p_d_o}\index{DepartamentoPDO@{DepartamentoPDO}}
+\doxysubsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_departamento_p_d_o_aaac21d70b7a66ce06902178c3b6e603f}{busca\+Departamento\+Por\+Cod}} (\$codigo)
+\item 
+static \mbox{\hyperlink{class_departamento_p_d_o_a457251de61e4e12fcfdf3d9962deaddd}{busca\+Departamentos\+Por\+Desc}} (\$busqueda)
+\item 
+static \mbox{\hyperlink{class_departamento_p_d_o_ab0df581dd80d3abec2db0c9080248583}{alta\+Departamento}} (\$codigo, \$descripcion, \$volumen)
+\item 
+static \mbox{\hyperlink{class_departamento_p_d_o_a058b213078f3c967e05484329e5e985c}{baja\+Fisica\+Departamento}} (\$codigo)
+\item 
+static \mbox{\hyperlink{class_departamento_p_d_o_ac42544970d4189fca0975fa40f99cf02}{baja\+Logica\+Departamento}} (\$codigo)
+\item 
+static \mbox{\hyperlink{class_departamento_p_d_o_abfc4238dd98b7b0dac56401beb06c2d0}{modifica\+Departamento}} (\$volumen, \$descripcion, \$codigo)
+\item 
+static \mbox{\hyperlink{class_departamento_p_d_o_adf608934155247cc598e804615deacdc}{rehabilita\+Departamento}} (\$codigo)
+\item 
+static \mbox{\hyperlink{class_departamento_p_d_o_aea852471ac0c465f1fce4ce37c7ba691}{valida\+Cod\+No\+Existe}} (\$cod\+Departamento)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Class \mbox{\hyperlink{class_departamento_p_d_o}{Departamento\+PDO}}
+
+Clase cuyos métodos se encargan de realizar consultas a la tabla T02\+\_\+\+Departamento de la base de datos.
+
+\begin{DoxyAuthor}{Autor}
+Beatriz Merino Macía 
+\end{DoxyAuthor}
+\begin{DoxySince}{Desde}
+1.\+0 Version 
+\end{DoxySince}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2020 -\/ 2021, Beatriz Merino Macía 
+\end{DoxyCopyright}
+\begin{DoxyVersion}{Versión}
+1.\+4 
+\end{DoxyVersion}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_departamento_p_d_o_ab0df581dd80d3abec2db0c9080248583}\label{class_departamento_p_d_o_ab0df581dd80d3abec2db0c9080248583}} 
+\index{DepartamentoPDO@{DepartamentoPDO}!altaDepartamento@{altaDepartamento}}
+\index{altaDepartamento@{altaDepartamento}!DepartamentoPDO@{DepartamentoPDO}}
+\doxysubsubsection{\texorpdfstring{altaDepartamento()}{altaDepartamento()}}
+{\footnotesize\ttfamily static alta\+Departamento (\begin{DoxyParamCaption}\item[{}]{\$codigo,  }\item[{}]{\$descripcion,  }\item[{}]{\$volumen }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Método alta\+Departamentoo()
+
+Método que da de alta en la base de datos a un nuevo departamento
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$codigo} & código del departamento \\
+\hline
+string & {\em \$descripcion} & descripción del departamento \\
+\hline
+string & {\em \$volumen} & del departamento \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+boolean devuelve true si se ha podido dar de alta el departamento o false si no se ha podido 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_departamento_p_d_o_a058b213078f3c967e05484329e5e985c}\label{class_departamento_p_d_o_a058b213078f3c967e05484329e5e985c}} 
+\index{DepartamentoPDO@{DepartamentoPDO}!bajaFisicaDepartamento@{bajaFisicaDepartamento}}
+\index{bajaFisicaDepartamento@{bajaFisicaDepartamento}!DepartamentoPDO@{DepartamentoPDO}}
+\doxysubsubsection{\texorpdfstring{bajaFisicaDepartamento()}{bajaFisicaDepartamento()}}
+{\footnotesize\ttfamily static baja\+Fisica\+Departamento (\begin{DoxyParamCaption}\item[{}]{\$codigo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Método \mbox{\hyperlink{class_departamento_p_d_o_a058b213078f3c967e05484329e5e985c}{baja\+Fisica\+Departamento()}}
+
+Método que elimina un departamento de la base de datos
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$codigo} & código del usuario que queremos borrar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+boolean true si se ha borrado el departamento y false en caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_departamento_p_d_o_ac42544970d4189fca0975fa40f99cf02}\label{class_departamento_p_d_o_ac42544970d4189fca0975fa40f99cf02}} 
+\index{DepartamentoPDO@{DepartamentoPDO}!bajaLogicaDepartamento@{bajaLogicaDepartamento}}
+\index{bajaLogicaDepartamento@{bajaLogicaDepartamento}!DepartamentoPDO@{DepartamentoPDO}}
+\doxysubsubsection{\texorpdfstring{bajaLogicaDepartamento()}{bajaLogicaDepartamento()}}
+{\footnotesize\ttfamily static baja\+Logica\+Departamento (\begin{DoxyParamCaption}\item[{}]{\$codigo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_departamento_p_d_o_aaac21d70b7a66ce06902178c3b6e603f}\label{class_departamento_p_d_o_aaac21d70b7a66ce06902178c3b6e603f}} 
+\index{DepartamentoPDO@{DepartamentoPDO}!buscaDepartamentoPorCod@{buscaDepartamentoPorCod}}
+\index{buscaDepartamentoPorCod@{buscaDepartamentoPorCod}!DepartamentoPDO@{DepartamentoPDO}}
+\doxysubsubsection{\texorpdfstring{buscaDepartamentoPorCod()}{buscaDepartamentoPorCod()}}
+{\footnotesize\ttfamily static busca\+Departamento\+Por\+Cod (\begin{DoxyParamCaption}\item[{}]{\$codigo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Método \mbox{\hyperlink{class_departamento_p_d_o_aaac21d70b7a66ce06902178c3b6e603f}{busca\+Departamento\+Por\+Cod()}}
+
+Método que obtiene todos los datos de un departamento de la base de datos
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$codigo} & código del departamento del que queremos obtener los datos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+null$\vert$\textbackslash{}\+Departamento devuelve un objeto de tipo \mbox{\hyperlink{class_departamento}{Departamento}} con los datos guardados en la base de datos y null si no se ha encontrado el departamento en la BBDD 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_departamento_p_d_o_a457251de61e4e12fcfdf3d9962deaddd}\label{class_departamento_p_d_o_a457251de61e4e12fcfdf3d9962deaddd}} 
+\index{DepartamentoPDO@{DepartamentoPDO}!buscaDepartamentosPorDesc@{buscaDepartamentosPorDesc}}
+\index{buscaDepartamentosPorDesc@{buscaDepartamentosPorDesc}!DepartamentoPDO@{DepartamentoPDO}}
+\doxysubsubsection{\texorpdfstring{buscaDepartamentosPorDesc()}{buscaDepartamentosPorDesc()}}
+{\footnotesize\ttfamily static busca\+Departamentos\+Por\+Desc (\begin{DoxyParamCaption}\item[{}]{\$busqueda }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Método \mbox{\hyperlink{class_departamento_p_d_o_a457251de61e4e12fcfdf3d9962deaddd}{busca\+Departamentos\+Por\+Desc()}}
+
+Método que obtiene todos los datos departamentos de la base de datos
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$busqueda} & descripción del departamento a buscar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+null$\vert$\textbackslash{}array devuelve un array de objetos de tipo \mbox{\hyperlink{class_departamento}{Departamento}} con los datos guardados en la base de datos y null si no se ha encontrado ninguno 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_departamento_p_d_o_abfc4238dd98b7b0dac56401beb06c2d0}\label{class_departamento_p_d_o_abfc4238dd98b7b0dac56401beb06c2d0}} 
+\index{DepartamentoPDO@{DepartamentoPDO}!modificaDepartamento@{modificaDepartamento}}
+\index{modificaDepartamento@{modificaDepartamento}!DepartamentoPDO@{DepartamentoPDO}}
+\doxysubsubsection{\texorpdfstring{modificaDepartamento()}{modificaDepartamento()}}
+{\footnotesize\ttfamily static modifica\+Departamento (\begin{DoxyParamCaption}\item[{}]{\$volumen,  }\item[{}]{\$descripcion,  }\item[{}]{\$codigo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Método modificar\+Departamento()
+
+Método que modifica el valor de la descripción y el volumen del departamento.
+
+
+\begin{DoxyParams}[1]{Parámetros}
+int & {\em \$volumen} & nuevo volumen de negocio \\
+\hline
+string & {\em \$descripcion} & nueva descripción del usuario \\
+\hline
+string & {\em \$codigo} & codigo del departamento que queremos modificar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+boolean devuelve true si se ha podido modificar el departamento y false si no 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_departamento_p_d_o_adf608934155247cc598e804615deacdc}\label{class_departamento_p_d_o_adf608934155247cc598e804615deacdc}} 
+\index{DepartamentoPDO@{DepartamentoPDO}!rehabilitaDepartamento@{rehabilitaDepartamento}}
+\index{rehabilitaDepartamento@{rehabilitaDepartamento}!DepartamentoPDO@{DepartamentoPDO}}
+\doxysubsubsection{\texorpdfstring{rehabilitaDepartamento()}{rehabilitaDepartamento()}}
+{\footnotesize\ttfamily static rehabilita\+Departamento (\begin{DoxyParamCaption}\item[{}]{\$codigo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_departamento_p_d_o_aea852471ac0c465f1fce4ce37c7ba691}\label{class_departamento_p_d_o_aea852471ac0c465f1fce4ce37c7ba691}} 
+\index{DepartamentoPDO@{DepartamentoPDO}!validaCodNoExiste@{validaCodNoExiste}}
+\index{validaCodNoExiste@{validaCodNoExiste}!DepartamentoPDO@{DepartamentoPDO}}
+\doxysubsubsection{\texorpdfstring{validaCodNoExiste()}{validaCodNoExiste()}}
+{\footnotesize\ttfamily static valida\+Cod\+No\+Existe (\begin{DoxyParamCaption}\item[{}]{\$cod\+Departamento }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Método validar\+Cod\+No\+Existe()
+
+Método que comprueba si un departamento existe o no en la base de datos
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$cod\+Departamento} & código de departamento que queremos comprobar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+boolean devuelve true si no existe y false en caso contrario 
+\end{DoxyReturn}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Usuario/\+Documents/\+Clase/\+DWES/servidor\+Casa/proyecto\+DWES/aplicacion\+Final/model/\mbox{\hyperlink{_departamento_p_d_o_8php}{Departamento\+PDO.\+php}}\end{DoxyCompactItemize}
