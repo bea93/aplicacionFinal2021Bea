@@ -24,7 +24,7 @@
         <div>
             <?php echo (isset($_REQUEST['numero']) && $ValoresPersonaje == null) ? "<p style='font-weight:bold; color:red;'>Ha habido un problema con el servicio REST</p>" : null;?>
             <label for="numero">Número de Personaje:</label><br>
-            <input type="number" id="numero" name="numero" min="1" max="671" placeholder="[1-671]" width="50" value="<?php echo $numeroPersonaje; ?>"/><br>
+            <input type="number" id="numero" name="numero" min="1" max="671" placeholder="[1-671]" width="50" value="<?php echo $_SESSION['numeroPersonaje']; ?>"/><br>
             <button class="button" type="submit" name="Aceptar">Aceptar</button>
         </div>
     </form>

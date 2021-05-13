@@ -7,14 +7,13 @@ if (isset($_REQUEST['Volver'])) {
     exit;
 }
 
-//Variable con el número del personaje
-$numeroPersonaje = null;
-$_SESSION['numero'] = $_REQUEST['numero'];
+//Variable de sesión que almacenará el número del personaje inicializada a null
+$_SESSION['numeroPersonaje'] = null;
 
 //Si se ha pulsado el botón Aceptar llamamos a la API y le pasamos el número introducido por el usuario
 if (isset($_REQUEST['Aceptar'])){
     $ValoresPersonaje = REST::personajeRM($_REQUEST['numero']);
-    $numeroPersonaje = $_SESSION['numero'];
+    $_SESSION['numeroPersonaje'] = $_REQUEST['numero'];
 } else {
     $ValoresPersonaje = null;
 }
