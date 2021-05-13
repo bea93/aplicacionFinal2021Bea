@@ -1,0 +1,28 @@
+<rss version="2.0">
+    <channel>
+        <title>Beatriz Merino Macía</title>
+        <copyright>
+            2020-2021. Beatriz Merino Macía. Todos los Derechos Reservados.
+        </copyright>
+        <link>
+            http://daw213.ieslossauces.es/aplicacionFinal2021/index.php
+        </link>
+        <description>Aplicación final del módulo DWES Curso 2020/2021</description>
+        <language>es</language>
+        <lastBuildDate>Mon, 03 May 2021 11:30:00 GMT</lastBuildDate>
+        <item>
+            <title>Aplicación final 2021</title>
+            <link>
+                http://daw213.ieslossauces.es/aplicacionFinal2021/index.php
+            </link>
+            <description>
+                Uso de dos API REST ajenos
+            </description>
+            <pubDate>Sun, 09 May 2021 11:30:00 GMT</pubDate>
+            <author>beatriz.mermac.1@educa.jcyl.es(Beatriz)</author>
+            <guid>
+                http://daw213.ieslossauces.es/aplicacionFinal2021/REST
+            </guid>
+        </item>
+    </channel>
+</rss>

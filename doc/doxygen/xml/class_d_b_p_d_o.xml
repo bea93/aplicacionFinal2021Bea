@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="es">
+  <compounddef id="class_d_b_p_d_o" kind="class" language="PHP" prot="public">
+    <compoundname>DBPDO</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_d_b_p_d_o_1a2abcf547df56694329fba928939a4259" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>static</type>
+        <definition>static ejecutaConsulta</definition>
+        <argsstring>($sentenciaSQL, $parametros)</argsstring>
+        <name>ejecutaConsulta</name>
+        <param>
+          <declname>$sentenciaSQL</declname>
+        </param>
+        <param>
+          <declname>$parametros</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Metodo ejecutarConsulta()</para>
+<para>Metodo que nos permite ejecutar una consulta sql a la base de datos</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype>string</parametertype>
+<parametername>$sentenciaSQL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>sentencia sql que queremos ejecutar </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametertype>array</parametertype>
+<parametername>$parametros</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>parametros que necesita la consulta </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>null|PDOStatement resultado que devolverá la consulta </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Usuario/Documents/Clase/DWES/servidorCasa/proyectoDWES/aplicacionFinal/model/DBPDO.php" line="24" column="28" bodyfile="C:/Users/Usuario/Documents/Clase/DWES/servidorCasa/proyectoDWES/aplicacionFinal/model/DBPDO.php" bodystart="24" bodyend="36"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Class <ref refid="class_d_b_p_d_o" kindref="compound">DBPDO</ref></para>
+<para>Clase cuyo metodo permite establecer una conexion con la base de datos</para>
+<para><simplesect kind="author"><para>Cristina Nuñez y Javier Nieto </para>
+</simplesect>
+<simplesect kind="since"><para>1.0 </para>
+</simplesect>
+<simplesect kind="copyright"><para>16-01-2021 </para>
+</simplesect>
+<simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="C:/Users/Usuario/Documents/Clase/DWES/servidorCasa/proyectoDWES/aplicacionFinal/model/DBPDO.php" line="13" column="1" bodyfile="C:/Users/Usuario/Documents/Clase/DWES/servidorCasa/proyectoDWES/aplicacionFinal/model/DBPDO.php" bodystart="13" bodyend="37"/>
+    <listofallmembers>
+      <member refid="class_d_b_p_d_o_1a2abcf547df56694329fba928939a4259" prot="public" virt="non-virtual"><scope>DBPDO</scope><name>ejecutaConsulta</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

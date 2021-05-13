@@ -1,4 +1,9 @@
 <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Detalle</h2>
+<article class="botones">
+    <form name="logout" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <button type="submit" name='volver'>Volver</button>
+    </form>
+</article>
 <div>
     <h3>Variable Session</h3>
         <pre>
@@ -12,7 +17,5 @@
         <pre>
             <?php print_r($_SERVER);?>
         </pre>
-    <form name="logout" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <button type="submit" name='volver'>Volver</button>
-    </form>
+    
 </div>

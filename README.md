@@ -4,7 +4,7 @@
 ***Descripción: Aplicación Final del módulo DWES***
 
 #### *Fecha Inicio: 03/05/2021*
-#### *Última Actualización: 06/05/2021*
+#### *Última Actualización: 11/05/2021*
 
 ***Autor: Beatriz Merino Macía***
 
@@ -13,7 +13,7 @@
 - Registro de Usuarios
 - Ventana de Inicio de Usuarios
 - Editar Cuenta
-- Cambiar ContraseÃ±a
+- Cambiar Contraseña
 - Borrar Cuenta
 - Uso de API REST
 - Creacion API REST (GET,POST(con clave de api))

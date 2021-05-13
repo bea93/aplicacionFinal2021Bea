@@ -9,11 +9,20 @@
         <button class="logout" type="submit" name='editar'>Editar Perfil</button>
         <button class="logout" id="borrarCuenta" type="submit" name='borrarCuenta'>Borrar Cuenta</button>
     </form>
+    <br>
+    <?php
+    //Si el usuario no tiene una imagen se le pone una por defecto
+    if ($imagenUsuario == null) {
+        echo '<img class="imgpreview" id="preview" src = "webroot/images/user.svg' . base64_encode($imagenUsuario) . '" width = "120px" height="120px"/>';
+    } else {
+        echo '<img class="imgpreview" id="preview" src = "data:image/png;base64,' . base64_encode($imagenUsuario) . '" width = "120px" height="120px"/>';
+    }
+    ?>
 </article>
 <div>
     <form name="logout" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <button class="logout" type="submit" name='detalle'>Detalle</button><br>
-        <button class="logout" id="mtoDep" type="submit" name='mtoDepartamentos'>Mto Departamentos</button><br>
+        <button class="logout" type="submit" name='detalle'>Detalle</button>
+        <button class="logout" id="mtoDep" type="submit" name='mtoDepartamentos'>Mto Departamentos</button>
         <button class="logout" id="rest" type="submit" name='rest'>REST</button>
     </form>
 </div>

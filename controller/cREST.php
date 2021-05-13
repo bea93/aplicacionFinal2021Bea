@@ -1,78 +1,60 @@
 <?php
-if (isset($_REQUEST['Cancelar'])) {
-    $_SESSION['paginaEnCurso'] = $controladores['inicio']; // guardamos en la variable de sesion 'pagina' la ruta del controlador del login
+//Si se ha pulsado el botón Cancelar
+if (isset($_REQUEST['Volver'])) {
+    //Guardamos en la variable de sesión 'pagina' la ruta del controlador del inicio
+    $_SESSION['paginaEnCurso'] = $controladores['inicio'];
     header('Location: index.php');
     exit;
 }
-//Si se ha pulsado en Tecnologías
-if (isset($_REQUEST['Tecnologias'])) {
-    //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
-    $_SESSION['paginaEnCurso'] = $controladores['wip'];
-    header("Location: index.php");
-    exit;
-}
-//Si se ha pulsado en PHPDoc
-if (isset($_REQUEST['PHPDoc'])) {
-    //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
-    $_SESSION['paginaEnCurso'] = $controladores['wip'];
-    header("Location: index.php");
-    exit;
-}
 
-//Si se ha pulsado en RSS
-if (isset($_REQUEST['RSS'])) {
-    //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
-    $_SESSION['paginaEnCurso'] = $controladores['wip'];
-    header("Location: index.php");
-    exit;
-}
+//Creacion e inicialización de variables
+$numeroPersonaje = null;
+$error = null;
+$aError = null;
+$nombrePersonajeR = null;
+$generoR = null;
+$estadoR = null;
+$especieR = null;
+$imagenR = null;
 
-//Si se ha pulsado en Doxygen
-if (isset($_REQUEST['Doxygen'])) {
-    //Guardamos en la variable de sesión 'pagina' la ruta del controlador del wip
-    $_SESSION['paginaEnCurso'] = $controladores['wip'];
-    header("Location: index.php");
-    exit;
-}
-
-//Si se ha pulsado el botón Aceptar llamamos a la API y le pasamos el número introducido por el usuario
+//Si se ha pulsado el botón Aceptar el número introducido por el usuario se almacena y se hacen las comprobaciones
 if (isset($_REQUEST['Aceptar'])){
-    $ValoresPersonaje = REST::personajeRM($_REQUEST['numero']);
-} else {
-    $ValoresPersonaje = null;
+    $numeroPersonaje = $_REQUEST['numero'];
+    
+    //Creacion e inicialización de variables
+    define("OBLIGATORIO", 1);
+    $entradaOK = true;
+
+    //Variable que almacenará el error que pueda surgir al validar el campo usando la librería de validación
+    $error = validacionFormularios::comprobarEntero($_REQUEST['numero'], 1000, 1, OBLIGATORIO);
+
+    //Si la comprobación ha ido bien se llama a la API pasándole el número introducido por el usuario
+    if ($error == null) {
+        $aRespuesta = REST::personajeRM($_REQUEST['numero']);
+        if ($aRespuesta[0] == true) {
+            $nombrePersonajeR = $aRespuesta[1]['name'];
+            $generoR = $aRespuesta[1]['gender'];
+            $estadoR = $aRespuesta[1]['status'];
+            $especieR = $aRespuesta[1]['species'];
+            $imagenR = $aRespuesta[1]['image'];
+            
+        } else {
+            $aError = $aRespuesta;
+        }
+    } else {
+        $error = "El campo no es valido";
+    }
 }
-if (is_null($ValoresPersonaje)) {
-    $nombrePersonajeR = null;
-    $imagenR = null;
-    $estadoR = null;
-    $especieR = null;
-    $generoR = null;
-} else {
-    $nombrePersonajeR = $ValoresPersonaje['name'];
-    $imagenR = $ValoresPersonaje['image'];
-    $estadoR = $ValoresPersonaje['status'];
-    $especieR = $ValoresPersonaje['species'];
-    $generoR = $ValoresPersonaje['gender'];
-}
+
+/*Creo una variable de sesión para recordar el autor introducido en el formulario y la inicializo a null
+$_SESSION['autorF'] = null;
 
 //Si se ha pulsado el botón Buscar llamamos a la API y le pasamos el autor introducido por el usuario
 if(isset($_REQUEST['Buscar'])){    
-    $libros = Rest::libros($_REQUEST['autor']);    
-}else {
-    $libros = null;
-}
-
-//Si se ha encontrado algún libro de ese autor
-if (!is_null($libros)){
-    $titulo = $libros['book_title'];
-    $resumen = $libros['summary'];
-    $fechaPublicacion = $libros['publication_dt'];
-    $urlResumen = $libros['url'];
-    $mensaje = null;
-    //Si se ha pulsado el botón Buscar pero no se ha encontrado ningún libro del autor se mostrará un mensaje
-} else if (isset($_REQUEST['autor']) && $libros == null){
-    $mensaje = "No se ha encontrado ningún libro de ese autor";
-}
+    $aLibro = Rest::libros($_REQUEST['autor']);  
+    //Almacenamos el autor en la variable de sesión
+    $_SESSION['autorF'] = $_REQUEST['autor'];
+}*/
 
 //Guardamos en la variable vistaEnCurso la vista que queremos implementar
 $vistaEnCurso = $vistas['rest'];

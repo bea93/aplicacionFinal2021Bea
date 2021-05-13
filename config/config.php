@@ -3,6 +3,8 @@ require_once "core/210322ValidacionFormularios.php";
 
 require_once "model/Usuario.php";
 require_once "model/UsuarioPDO.php";
+require_once "model/Departamento.php";
+require_once "model/DepartamentoPDO.php";
 require_once "model/DBPDO.php";
 require_once "model/REST.php";
 
@@ -15,7 +17,8 @@ $controladores = [
     "cambiarPassword" => "controller/cCambiarPassword.php",
     "borrarCuenta" => "controller/cBorrarCuenta.php",
     "wip" => "controller/cWIP.php",
-    "rest" => "controller/cREST.php"
+    "rest" => "controller/cREST.php",
+    "mtoDepartamentos" => "controller/cMtoDepartamentos.php"
 ];
 
 $vistas = [
@@ -28,5 +31,6 @@ $vistas = [
     "cambiarPassword" => "view/vCambiarPassword.php",
     "borrarCuenta" => "view/vBorrarCuenta.php",
     "wip" => "view/vWIP.php",
-    "rest" => "view/vREST.php"
+    "rest" => "view/vREST.php",
+    "mtoDepartamentos" => "view/vMtoDepartamentos.php"
 ];
