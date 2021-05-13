@@ -20,7 +20,7 @@ body {
     color: black;
 }
 
-#fotos{
+.fotos{
     display: inline-block;
 }
 
@@ -57,6 +57,10 @@ button{
     padding-right: 15px;
 }
 
+.mtoDepartamentos{
+    border: none;
+    background-color: transparent;
+}
 @media screen and (max-width: 992px) {
   body {
     font-size: 16px;

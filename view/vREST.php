@@ -13,18 +13,22 @@
             </a>
         </h4>
         <div>
-            <?php if(isset($ValoresPersonaje)){ ?>
-                <p><span style="font-weight:bold;">Nombre del personaje: </span> <?php echo $nombrePersonajeR ?></p>
-                <p><span style="font-weight:bold;">Imagen: </span><br><img src="<?php echo $imagenR; ?>" width="150px"></p>
-                <p><span style="font-weight:bold;">Estado del personaje: </span> <?php echo $estadoR ?></p>
-                <p><span style="font-weight:bold;">Especie del personaje: </span> <?php echo $especieR ?></p>
-                <p><span style="font-weight:bold;">Género del personaje: </span> <?php echo $generoR ?></p>
+            <?php if($error != null){ ?>
+                <p>⚠ <?php echo $error?> ️</p>
+            <?php }else if ($aError != null) {?>   
+                <p>⚠ <?php echo $aError[1]?> ️</p>
+            <?php }
+                if(isset($aRespuesta)) {?>   
+                    <p><span style="font-weight:bold;">Nombre del personaje: </span> <?php echo $nombrePersonajeR ?></p>
+                    <p><span style="font-weight:bold;">Imagen: </span><br><img src="<?php echo $imagenR; ?>" width="150px"></p>
+                    <p><span style="font-weight:bold;">Estado del personaje: </span> <?php echo $estadoR ?></p>
+                    <p><span style="font-weight:bold;">Especie del personaje: </span> <?php echo $especieR ?></p>
+                    <p><span style="font-weight:bold;">Género del personaje: </span> <?php echo $generoR ?></p>
             <?php } ?>
         </div> 
         <div>
-            <?php echo (isset($_REQUEST['numero']) && $ValoresPersonaje == null) ? "<p style='font-weight:bold; color:red;'>Ha habido un problema con el servicio REST</p>" : null;?>
             <label for="numero">Número de Personaje:</label><br>
-            <input type="number" id="numero" name="numero" min="1" max="671" placeholder="[1-671]" width="50" value="<?php echo $_SESSION['numeroPersonaje']; ?>"/><br>
+            <input type="number" id="numero" name="numero" min="1" max="671" placeholder="[1-671]" width="50" value="<?php echo $numeroPersonaje; ?>"/><br>
             <button class="button" type="submit" name="Aceptar">Aceptar</button>
         </div>
     </form>
@@ -48,8 +52,9 @@
         <div>
             <?php echo (isset($_REQUEST['autor']) && $aLibro == null) ? "<p style='font-weight:bold; color:red;'>No se ha encontrado ningún libro del autor</p>" : null;?>
             <label for="autor">Autor:</label>
-            <input type="text" id="autor" name="autor" placeholder="Nombre del autor" value="<?php echo $_REQUEST['autor']; ?>">
+            <input type="text" id="autor" name="autor" placeholder="Nombre del autor" >
             <button class="button" type="submit" name="Buscar">Buscar</button>
+            <p><?php echo $mierda; ?></p>
         </div>
     </form>
 </div>-->

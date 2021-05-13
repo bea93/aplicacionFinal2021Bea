@@ -37,7 +37,7 @@ if (isset($_REQUEST['borrarCuenta'])) {
 //Si se ha pulsado el botón MtoDepartamentos
 if (isset($_REQUEST['mtoDepartamentos'])) {
     //Guardamos en la variable de sesión 'pagina' la ruta del controlador del editor de contraseña
-    $_SESSION['paginaEnCurso'] = $controladores['wip'];
+    $_SESSION['paginaEnCurso'] = $controladores['mtoDepartamentos'];
     header('Location: index.php');
     exit;
 }
@@ -61,4 +61,5 @@ $imagenUsuario = $oUsuarioActual->getImagenPerfil();
 $vistaEnCurso = $vistas['inicio']; 
 require_once $vistas['layout'];
 
+//Guardamos en una variable de sesión el controlador de la página para poder volver a ella
 $_SESSION['paginaAnterior'] = $controladores['inicio'];
