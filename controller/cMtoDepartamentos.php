@@ -7,17 +7,34 @@ if (isset($_REQUEST['Volver'])) {
     exit;
 }
 
-//Si se ha pulsado Buscar
+//Creación de variables
+define("OPCIONAL", 0);
+$error =  null;
+$entradaOK = true;
+
+//Si se ha pulsado Buscar validamos la descripción recogida en el formulario llamando a la librería
 if (isset($_REQUEST['Buscar'])) {
-    //Almacena la descripción a buscar en una variable
-    $descripcionBuscada = $_REQUEST['descripcion'];
+    $error = validacionFormularios::comprobarAlfaNumerico($_REQUEST['descripcion'], 255, 1, OPCIONAL);
+
+    //Si hay un error $entradaOK pasa a ser false y el campo se vacía
+    if ($error != null) {
+        $entradaOK = false;
+        $_REQUEST[$campo] = "";
+    }
+    
+//Si no se ha pulsado Buscar $entradaOK pasa a false y la descripción a buscar se vacía para que salgan todos los departamentos de la BBDD
 } else {
-    //Si no se ha pulsado la descripcion a buscar estaría vacía y se mostrarían todos los departamentos
-    $descripcionBuscada = "";
+    $entradaOK = false;
+    $_SESSION['descripcionBuscada'] = "";
+}
+
+//Si todo ha ido bien la descripción a buscar pasa a ser la introducida en el formulario
+if ($entradaOK) {
+    $_SESSION['descripcionBuscada'] = $_REQUEST['descripcion'];
 }
 
 //Crea un array con todos los departamentos obtenidos al llamar al método buscaDepartamentosPorDesc
-$arrayDepartamentos = DepartamentoPDO::buscaDepartamentosPorDesc($descripcionBuscada);
+$arrayDepartamentos = DepartamentoPDO::buscaDepartamentosPorDesc($_SESSION['descripcionBuscada']);
 
 
 //Si se pulsa Modificar o Eliminar departamento se redirige al WIP
