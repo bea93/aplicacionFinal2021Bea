@@ -33,7 +33,7 @@
         </div>
     </form>
 </div>
-<!--<div style="width: 50%; float: left;">
+<div style="width: 50%; float: left;">
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <h3>Crítica de libros del New York Times</h3>
         <h4>
@@ -42,8 +42,10 @@
             </a>
         </h4>
         <div>
-            <?php if(isset($aLibro)){ ?>
-                <p><span style="font-weight:bold;">Título del libro: </span> <?php echo $aLibro['Titulo'] ?></p>
+            <?php if ($error2 != null) { ?>
+                <p>⚠ <?php echo $error2 ?> ️</p>
+            <?php } if (isset($aLibro)) {?>
+            <p><span style="font-weight:bold;">Título del libro: </span> <?php echo $aLibro['Titulo'] ?></p>
                 <p><span style="font-weight:bold;">Resumen: </span> <?php echo $aLibro['Resumen'] ?></p>
                 <p><span style="font-weight:bold;">Fecha de publicación: </span> <?php echo $aLibro['Fecha'] ?></p>
                 <p><span style="font-weight:bold;">URL con la crítica: </span> <a href="<?php echo $aLibro['URL'] ?>" target="blank"><?php echo $aLibro['URL'] ?></a></p>
@@ -52,9 +54,8 @@
         <div>
             <?php echo (isset($_REQUEST['autor']) && $aLibro == null) ? "<p style='font-weight:bold; color:red;'>No se ha encontrado ningún libro del autor</p>" : null;?>
             <label for="autor">Autor:</label>
-            <input type="text" id="autor" name="autor" placeholder="Nombre del autor" >
+            <input type="text" id="autor" name="autor" placeholder="Nombre del autor" value="<?php echo $nombreAutor; ?>">
             <button class="button" type="submit" name="Buscar">Buscar</button>
-            <p><?php echo $mierda; ?></p>
         </div>
     </form>
-</div>-->
+</div>

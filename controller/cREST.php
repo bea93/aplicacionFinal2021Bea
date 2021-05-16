@@ -46,15 +46,30 @@ if (isset($_REQUEST['Aceptar'])){
     }
 }
 
-/*Creo una variable de sesión para recordar el autor introducido en el formulario y la inicializo a null
-$_SESSION['autorF'] = null;
+//Creacion e inicialización de variables
+$nombreAutor = null;
+$error2 = null;
 
-//Si se ha pulsado el botón Buscar llamamos a la API y le pasamos el autor introducido por el usuario
-if(isset($_REQUEST['Buscar'])){    
-    $aLibro = Rest::libros($_REQUEST['autor']);  
-    //Almacenamos el autor en la variable de sesión
-    $_SESSION['autorF'] = $_REQUEST['autor'];
-}*/
+//Si se ha pulsado el botón Buscar el autor introducido por el usuario se almacena y se hacen las comprobaciones
+if (isset($_REQUEST['Buscar'])) {
+    $nombreAutor = $_REQUEST['autor'];
+
+    //Creacion e inicialización de variables
+    define("OBLIGATORIO", 1);
+    $entradaOK = true;
+
+    //Variable que almacenará el error que pueda surgir al validar el campo usando la librería de validación
+    $error2 = validacionFormularios::comprobarAlfaNumerico($_REQUEST['autor'], 255, 1, OBLIGATORIO);
+
+    //Si la comprobación ha ido bien se llama a la API pasándole el autor introducido por el usuario
+    if ($error2 == null) {
+        $aLibro = REST::libros($_REQUEST['autor']);
+        
+    //Si no se muestra un mensaje de error    
+    } else {
+        $error2 = "El nombre introducido no es válido";
+    }
+}
 
 //Guardamos en la variable vistaEnCurso la vista que queremos implementar
 $vistaEnCurso = $vistas['rest'];

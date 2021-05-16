@@ -24,5 +24,19 @@
                 http://daw213.ieslossauces.es/aplicacionFinal2021/REST
             </guid>
         </item>
+        <item>
+            <title>Aplicación final 2021</title>
+            <link>
+                http://daw213.ieslossauces.es/aplicacionFinal2021/index.php
+            </link>
+            <description>
+                Mantenimiento de la tabla Departamentos
+            </description>
+            <pubDate>Sun, 16 May 2021 11:30:00 GMT</pubDate>
+            <author>beatriz.mermac.1@educa.jcyl.es(Beatriz)</author>
+            <guid>
+                http://daw213.ieslossauces.es/aplicacionFinal2021/mtoDepartamentos
+            </guid>
+        </item>
     </channel>
 </rss>

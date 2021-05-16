@@ -64,7 +64,7 @@ class REST {
      * 
      * @param type string nombre y apellido del autor que queramos buscar separados por un espacio.
      * @return type array que contiene información sobre uno de sus libros. 
-     
+    */ 
     public static function libros($autor) {
         //Creamos e inicializamos un array que almacenará los datos del libro a null
         $aLibro = null;
@@ -73,22 +73,19 @@ class REST {
         $key = 'hOzsi3xqFWqCMIbDznRf3I5UQ8GxlvPA';
         $resultado = file_get_contents('https://api.nytimes.com/svc/books/v3/reviews.json?author=' . $autor . '&api-key=' . $key);
         $aJSON = json_decode($resultado, true);
-        
-        $mierda = var_dump($aJSON);
 
-        //Recorremos el array con la información del libro para sacar los datos que queremos mostrar
-        foreach ($aJSON as $resultado ) {
-            
-            foreach ($resultado as $datos) {  
-                $aLibro = [
-                    'Titulo' => $datos['book_title'],
-                    'Resumen' => $datos['summary'],
-                    'Fecha' => $datos['publication_dt'],
-                    'URL' => $datos['url']
-                ];
-            }
+        //Dentro del aJSON solo accedemos al elemento 'results', que es el que almacena la información de los libros
+        foreach ($aJSON['results'] as $datos ) {
+            //Guardamos los datos del libro dentro de un array
+            $aLibro = [
+                'Titulo' => $datos['book_title'],
+                'Resumen' => $datos['summary'],
+                'Fecha' => $datos['publication_dt'],
+                'URL' => $datos['url']
+            ];
         }
+        
+        //Devolvemos el array
         return $aLibro;
-    }*/
-
+    }
 }
