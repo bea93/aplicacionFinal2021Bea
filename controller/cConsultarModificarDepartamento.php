@@ -16,6 +16,9 @@ $codDep = $_SESSION['codDepartamento'];
 $descDep = $oDepartamento->getDescDepartamento();
 $volumen = $oDepartamento->getVolumenNegocio();
 $fechaCreacion = $oDepartamento->getFechaCreacion();
+if (!is_null($oDepartamento->getFechaBaja())) {
+    $fechaBaja = date('d/m/Y', $oDepartamento->getFechaBaja());
+}
 
 //Declaración y definición de variables
 define("OBLIGATORIO", 1); 

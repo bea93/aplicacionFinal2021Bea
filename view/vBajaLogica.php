@@ -1,4 +1,4 @@
-<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Eliminar Departamento</h2>
+<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Baja Lógica Departamento</h2>
 <div>
     <form name="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form">
         <div>
@@ -15,11 +15,11 @@
             <br>
 
             <label for="VolumenNegocio">Volumen de negocio</label><br>
-            <input type="text" id="VolumenNegocio" name="VolumenNegocio" readonly value="<?php echo  $volumen; ?>">
+            <input type="text" id="VolumenNegocio" name="VolumenNegocio" readonly value="<?php echo $volumen; ?>">
             <br>
             
             <label for="FechaBaja">Fecha de Baja</label><br>
-            <input type="text" id="FechaBaja" name="FechaBaja" value="<?php echo isset($fechaBaja) ? $fechaBaja : null; ?>">
+            <input type="text" id="FechaBaja" name="FechaBaja" readonly value="<?php echo isset($fechaBaja) ?  $fechaBaja : null; ?>">
             <br>
         </div>
         <div>

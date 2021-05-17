@@ -6,6 +6,13 @@ if (isset($_REQUEST['Volver'])) {
     header('Location: index.php');
     exit;
 }
+//Si se ha pulsado Alta
+if (isset($_REQUEST['Alta'])) {
+    //Guardamos en la variable de sesión 'pagina' la ruta del controlador de altaDepartamento
+    $_SESSION['paginaEnCurso'] = $controladores['altaDepartamento'];
+    header('Location: index.php');
+    exit;
+}
 
 //Creación de variables
 define("OPCIONAL", 0);
@@ -28,6 +35,8 @@ if (isset($_REQUEST['Buscar'])) {
     $_SESSION['descripcionBuscada'] = "";
 }
 
+
+
 //Si todo ha ido bien la descripción a buscar pasa a ser la introducida en el formulario
 if ($entradaOK) {
     $_SESSION['descripcionBuscada'] = $_REQUEST['descripcion'];
@@ -36,15 +45,31 @@ if ($entradaOK) {
 //Crea un array con todos los departamentos obtenidos al llamar al método buscaDepartamentosPorDesc
 $arrayDepartamentos = DepartamentoPDO::buscaDepartamentosPorDesc($_SESSION['descripcionBuscada']);
 
+//Guardamos la descripción buscada en una variable de sesión para recordarla
+$descBuscada = $_SESSION['descripcionBuscada'];
 
-//Si se pulsa Modificar o Eliminar departamento se redirige al WIP
+//Si se pulsa Modificar o Eliminar departamento se redirige a las ventanas correspondiéndoles pasándoles el código del departamento seleccionado en una variable de sesión
 if (isset($_REQUEST['modificarDepartamento'])) {
-    $_SESSION['paginaEnCurso'] = $controladores['wip'];
+    $_SESSION['codDepartamento'] = $_REQUEST['modificarDepartamento'];
+    $_SESSION['paginaEnCurso'] = $controladores['modificarDepartamento'];
     header('Location: index.php');
     exit;
 }
 if (isset($_REQUEST['eliminarDepartamento'])) {
-    $_SESSION['paginaEnCurso'] = $controladores['wip'];
+    $_SESSION['codDepartamento'] = $_REQUEST['eliminarDepartamento'];
+    $_SESSION['paginaEnCurso'] = $controladores['borrarDepartamento'];
+    header('Location: index.php');
+    exit;
+}
+if (isset($_REQUEST['bajaLogica'])) {
+    $_SESSION['codDepartamento'] = $_REQUEST['bajaLogica'];
+    $_SESSION['paginaEnCurso'] = $controladores['bajaLogica'];
+    header('Location: index.php');
+    exit;
+}
+if (isset($_REQUEST['rehabilitar'])) {
+    $_SESSION['codDepartamento'] = $_REQUEST['rehabilitar'];
+    $_SESSION['paginaEnCurso'] = $controladores['rehabilitar'];
     header('Location: index.php');
     exit;
 }

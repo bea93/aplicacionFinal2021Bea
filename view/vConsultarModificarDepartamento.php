@@ -19,6 +19,10 @@
             <input type="text" id="VolumenNegocio" name="VolumenNegocio" value="<?php echo isset($_REQUEST['VolumenNegocio']) ? $_REQUEST['VolumenNegocio'] : $volumen; ?>">
             <?php echo isset($aErrores['VolumenNegocio']) ? '<p style="color: red;">' . $aErrores['VolumenNegocio'] . '</p>' : null; ?>
             <br>
+            
+            <label for="FechaBaja">Fecha de Baja</label><br>
+            <input type="text" id="FechaBaja" name="FechaBaja" value="<?php echo isset($fechaBaja) ?  $fechaBaja : null; ?>">
+            <br>
         </div>
         <div>
             <button class="logout" type="submit" name='Aceptar'>Aceptar</button>

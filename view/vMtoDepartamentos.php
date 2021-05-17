@@ -9,11 +9,12 @@
             <div>
                 <label for="codigo">Descripción: </label>
                 <input type="search" name="descripcion" placeholder="Descripción" value="<?php
-                if (isset($_REQUEST['descripcion'])) {
-                    echo $_REQUEST['descripcion'];
+                if ($descBuscada !== null) {
+                    echo $descBuscada;
                 }
                 ?>"/>
                 <button type="submit" name="Buscar">Buscar</button>
+                <button type="submit" name="Alta">Añadir</button>
             </div>
             <br>
             <table>
@@ -24,11 +25,11 @@
                         <th>Volumen negocio</th>
                         <th>Fecha creación</th>
                         <th>Fecha baja</th>
-                        <th colspan="2">Opciones</th>
+                        <th colspan="4">Opciones</th>
                     </tr>
                 </thead>
                 <?php 
-                if (count($arrayDepartamentos) > 0) { 
+                if (isset($arrayDepartamentos)) { 
                     ?>
                     <tbody>
                         <?php
@@ -48,10 +49,16 @@
                                 <td><?php echo date('d/m/Y', $oDepartamento->getFechaCreacion()); ?></td>
                                 <td><?php echo $fechaBaja; ?></td>
                                 <td>
-                                    <button class="mtoDepartamentos" name="modificarDepartamento" value="<?php echo $codigoDep ?>"><i class='fas fa-pencil-alt'></i></button>
+                                    <button class="mtoDepartamentos" type="submit" name="modificarDepartamento" value="<?php echo $codigoDep ?>"><i class='fas fa-pencil-alt'></i></button>
                                 </td>
                                 <td>
-                                    <button class="mtoDepartamentos" name="eliminarDepartamento" value="<?php echo $codigoDep ?>"><i class='far fa-trash-alt'></i></button>                           
+                                    <button class="mtoDepartamentos" type="submit" name="eliminarDepartamento" value="<?php echo $codigoDep ?>"><i class='far fa-trash-alt'></i></button>                           
+                                </td>
+                                <td>
+                                    <button class="mtoDepartamentos" type="submit" name="bajaLogica" value="<?php echo $codigoDep ?>"><i class="fas fa-arrow-down" style="color:red"></i></i></button>
+                                </td>
+                                <td>
+                                    <button class="mtoDepartamentos" type="submit" name="rehabilitar" value="<?php echo $codigoDep ?>"><i class="fas fa-arrow-up" style="color:green"></i></i></button>                           
                                 </td>
                             </tr>
                         <?php }

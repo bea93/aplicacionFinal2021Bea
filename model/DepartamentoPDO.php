@@ -47,7 +47,8 @@ class DepartamentoPDO {
      * @return null|\array devuelve un array de objetos de tipo Departamento con los datos guardados en la base de datos y null si no se ha encontrado ninguno
      */
     public static function buscaDepartamentosPorDesc($busqueda) {
-
+        $aDepartamentos = null;
+        
         $consulta = "SELECT * FROM T02_Departamento WHERE T02_DescDepartamento LIKE CONCAT('%', ?, '%')";
         $resultado = DBPDO::ejecutaConsulta($consulta, [$busqueda]);
 
@@ -118,8 +119,31 @@ class DepartamentoPDO {
         return $borrado;
     }
     
+    /**
+     * Método bajaLogicaDepartamento()
+     * 
+     * Método que da de baja un departamento
+     * 
+     * @param string $codigo código de departamento que queremos dar de baja
+     * @return boolean devuelve true si se ha dado de baja y false en caso contrario
+     */
     public static function bajaLogicaDepartamento($codigo) {
-        
+        //Variable booleana inicializada a false
+        $bajaLogica = false;
+        //Inicializamos la variable $dateTimeBaja con un objeto de tipo DateTime de la fechaBaja pasada como parámetro
+        $dateTimeBaja = new DateTime($fechaBaja);
+
+        //Cambia la fecha de baja del departamento en la base de datos ejecutando un query
+        $sentenciaSQL = "Update T02_Departamento set T02_FechaBajaDepartamento=? WHERE T02_CodDepartamento=?";
+        $resultadoConsulta = DBPDO::ejecutaConsulta($sentenciaSQL, [$dateTimeBaja->getTimestamp(), $codigo]);
+
+        //Si la consulta se realiza correctamente cambiamos el valor de $bajaLogica a true
+        if ($resultadoConsulta) {
+            $bajaLogica = true;
+        }
+
+        //Devuelvo la variable
+        return $bajaLogica;
     }
     
     /**
@@ -149,8 +173,29 @@ class DepartamentoPDO {
         return $departamentoModificado;
     }
     
+    /**
+     * Método rehabilitaDepartamento()
+     * 
+     * Método que rehabilita un departamento dado de baja
+     * 
+     * @param string $codigo código de departamento que queremos rehabilitar
+     * @return boolean devuelve true si se ha rehabilitado y false en caso contrario
+     */
     public static function rehabilitaDepartamento($codigo) {
-        
+        //Variable booleana inicializada a false
+        $rehabilitacion = false;
+
+        //Cambia la fecha de baja del departamento en la base de datos ejecutando un query
+        $sentenciaSQL = "Update T02_Departamento set T02_FechaBajaDepartamento=null WHERE T02_CodDepartamento=?";
+        $resultadoConsulta = DBPDO::ejecutaConsulta($sentenciaSQL, [$codigo]);
+
+        //Si la consulta se realiza correctamente cambiamos el valor de $rehabilitacion a true
+        if ($resultadoConsulta) {
+            $rehabilitacion = true;
+        }
+
+        //Devuelvo la variable
+        return $rehabilitacion; 
     }
     
     /**
