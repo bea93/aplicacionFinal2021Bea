@@ -53,20 +53,12 @@ class DepartamentoPDO {
 
         //Si hay algún resultado lo almacena en la variable
         if ($resultado->rowCount() > 0) {
-            $departamento = $resultado->fetchObject();
-            //Variable para el número del departamento del array equivalente a la posición del array
-            $numDepartamento = 0;
-
-            //Mientras haya departamentos 
-            while ($departamento) { 
+           
+            for ($numDepartamento = 0, $departamento = $resultado->fetchObject(); $numDepartamento < $resultado->rowCount(); ++$numDepartamento, $departamento = $resultado->fetchObject()) {
                 // Instanciamos un objeto Departamento con los datos devueltos por la consulta
                 $oDepartamento = new Departamento($departamento->T02_CodDepartamento, $departamento->T02_DescDepartamento, $departamento->T02_FechaCreacionDepartamento, $departamento->T02_VolumenNegocio, $departamento->T02_FechaBajaDepartamento);
                 //Añade el objeto Departamento en el array en la posición indicada
                 $aDepartamentos[$numDepartamento] = $oDepartamento;
-                //Incrementa la posición del array
-                $numDepartamento++;
-                //Avanza el puntero al siguiente departamento
-                $departamento = $resultado->fetchObject();
             }
         }
         
