@@ -55,10 +55,11 @@
                                     <button class="mtoDepartamentos" type="submit" name="eliminarDepartamento" value="<?php echo $codigoDep ?>"><i class='far fa-trash-alt'></i></button>                           
                                 </td>
                                 <td>
-                                    <button class="mtoDepartamentos" type="submit" name="bajaLogica" value="<?php echo $codigoDep ?>"><i class="fas fa-arrow-down" style="color:red"></i></i></button>
-                                </td>
-                                <td>
-                                    <button class="mtoDepartamentos" type="submit" name="rehabilitar" value="<?php echo $codigoDep ?>"><i class="fas fa-arrow-up" style="color:green"></i></i></button>                           
+                                    <?php if (is_null($oDepartamento->getFechaBaja())) {?>
+                                        <button class="mtoDepartamentos" type="submit" name="bajaLogica" value="<?php echo $codigoDep ?>"><i class="fas fa-arrow-down" style="color:red"></i></i></button>
+                                    <?php } else {?>
+                                        <button class="mtoDepartamentos" type="submit" name="rehabilitar" value="<?php echo $codigoDep ?>"><i class="fas fa-arrow-up" style="color:green"></i></i></button>
+                                    <?php }?>                        
                                 </td>
                             </tr>
                         <?php }

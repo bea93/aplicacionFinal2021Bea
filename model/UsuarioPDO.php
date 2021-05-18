@@ -51,7 +51,7 @@ class UsuarioPDO{
      * 
      * @param string $codUsuario código del usuario
      * @param string $password password del usuario
-     * @param string $descripcion descripción del usuario
+     * @param string $descUsuario descripción del usuario
      * @return null|\Usuario devuelve un objeto de tipo Usuario con los datos guardados en la base de datos y null si no se ha podido dar de alta
      */
     public static function altaUsuario($codUsuario, $password, $descUsuario){
