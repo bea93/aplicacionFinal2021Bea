@@ -1,15 +1,48 @@
 <?php
-//Si se ha pulsado Volver
+//Si se ha pulsado Volver o Alta, Exportar o Importar se guarda en la variable de sesión 'paginaEnCurso' la ruta del controlador de la página a la que queramos ir
 if (isset($_REQUEST['Volver'])) {
-    //Guardamos en la variable de sesión 'pagina' la ruta del controlador del inicio
     $_SESSION['paginaEnCurso'] = $controladores['inicio'];
     header('Location: index.php');
     exit;
 }
-//Si se ha pulsado Alta
 if (isset($_REQUEST['Alta'])) {
-    //Guardamos en la variable de sesión 'pagina' la ruta del controlador de altaDepartamento
     $_SESSION['paginaEnCurso'] = $controladores['altaDepartamento'];
+    header('Location: index.php');
+    exit;
+}
+if (isset($_REQUEST['Importar'])) {
+    $_SESSION['paginaEnCurso'] = $controladores['importar'];
+    header('Location: index.php');
+    exit;
+}
+if (isset($_REQUEST['Exportar'])) {
+    $_SESSION['paginaEnCurso'] = $controladores['exportar'];
+    header('Location: index.php');
+    exit;
+}
+
+//Si se pulsa Modificar, Eliminar, Baja o Rehabilitar se redirige a las ventanas correspondientes pasándoles el código del departamento seleccionado en una variable de sesión
+if (isset($_REQUEST['Modificar'])) {
+    $_SESSION['codDepartamento'] = $_REQUEST['Modificar'];
+    $_SESSION['paginaEnCurso'] = $controladores['modificarDepartamento'];
+    header('Location: index.php');
+    exit;
+}
+if (isset($_REQUEST['Eliminar'])) {
+    $_SESSION['codDepartamento'] = $_REQUEST['Eliminar'];
+    $_SESSION['paginaEnCurso'] = $controladores['borrarDepartamento'];
+    header('Location: index.php');
+    exit;
+}
+if (isset($_REQUEST['Baja'])) {
+    $_SESSION['codDepartamento'] = $_REQUEST['Baja'];
+    $_SESSION['paginaEnCurso'] = $controladores['bajaLogica'];
+    header('Location: index.php');
+    exit;
+}
+if (isset($_REQUEST['Rehabilitar'])) {
+    $_SESSION['codDepartamento'] = $_REQUEST['Rehabilitar'];
+    $_SESSION['paginaEnCurso'] = $controladores['rehabilitar'];
     header('Location: index.php');
     exit;
 }
@@ -48,31 +81,7 @@ $arrayDepartamentos = DepartamentoPDO::buscaDepartamentosPorDesc($_SESSION['desc
 //Guardamos la descripción buscada en una variable de sesión para recordarla
 $descBuscada = $_SESSION['descripcionBuscada'];
 
-//Si se pulsa Modificar o Eliminar departamento se redirige a las ventanas correspondiéndoles pasándoles el código del departamento seleccionado en una variable de sesión
-if (isset($_REQUEST['modificarDepartamento'])) {
-    $_SESSION['codDepartamento'] = $_REQUEST['modificarDepartamento'];
-    $_SESSION['paginaEnCurso'] = $controladores['modificarDepartamento'];
-    header('Location: index.php');
-    exit;
-}
-if (isset($_REQUEST['eliminarDepartamento'])) {
-    $_SESSION['codDepartamento'] = $_REQUEST['eliminarDepartamento'];
-    $_SESSION['paginaEnCurso'] = $controladores['borrarDepartamento'];
-    header('Location: index.php');
-    exit;
-}
-if (isset($_REQUEST['bajaLogica'])) {
-    $_SESSION['codDepartamento'] = $_REQUEST['bajaLogica'];
-    $_SESSION['paginaEnCurso'] = $controladores['bajaLogica'];
-    header('Location: index.php');
-    exit;
-}
-if (isset($_REQUEST['rehabilitar'])) {
-    $_SESSION['codDepartamento'] = $_REQUEST['rehabilitar'];
-    $_SESSION['paginaEnCurso'] = $controladores['rehabilitar'];
-    header('Location: index.php');
-    exit;
-}
+
 
 //Guardamos en la variable vistaEnCurso la vista que queremos implementar
 $vistaEnCurso = $vistas['mtoDepartamentos'];

@@ -3,19 +3,19 @@
     <form name="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form">
         <div>
             <label for="CodDepartamento">Código de departamento</label><br>
-            <input type="text" id="CodDepartamento" name="CodDepartamento" readonly value="<?php echo $codDep; ?>">
+            <input type="text" size="4" id="CodDepartamento" name="CodDepartamento" readonly value="<?php echo $codDep; ?>">
             <br>
 
             <label for="DescDepartamento" >Descripción de departamento</label><br>
-            <input type="text" id="DescDepartamento" name="DescDepartamento" readonly value="<?php echo $descDep; ?>">
+            <input type="text" size="30" id="DescDepartamento" name="DescDepartamento" readonly value="<?php echo $descDep; ?>">
             <br>
 
             <label for="FechaCreacion">Fecha de creación</label><br>
-            <input type="text" id="FechaCreacion" name="FechaCreacion" readonly value="<?php echo date('d/m/Y', $fechaCreacion); ?>">
+            <input type="text" size="10" id="FechaCreacion" name="FechaCreacion" readonly value="<?php echo date('d/m/Y', $fechaCreacion); ?>">
             <br>
 
             <label for="VolumenNegocio">Volumen de negocio</label><br>
-            <input type="text" id="VolumenNegocio" name="VolumenNegocio" readonly value="<?php echo $volumen; ?>">
+            <input type="text" size="5" id="VolumenNegocio" name="VolumenNegocio" readonly value="<?php echo $volumen; ?>">
             <br>
             
             <label for="FechaBaja">Fecha de Baja</label><br>

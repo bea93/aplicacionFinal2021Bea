@@ -222,4 +222,169 @@ class DepartamentoPDO {
         //Devuelvo la variable
         return $departamentoNoExiste;
     }
+    
+    /**
+     * Metodo exportarDepartamentos()
+     * 
+     * Metodo que exporta los departamentos almacenados en la base de datos en distintos formatos,
+     * estos formatos pueden ser xml o json
+     *
+     * @param  string $tipo tipo de archivo que se desea exportar (xml o json)
+     * @return void
+     */
+    public static function exportarDepartamentos($tipo) {
+        $sentenciaSQL = "Select * from T02_Departamento";
+        $resultadoConsulta = DBPDO::ejecutaConsulta($sentenciaSQL, []);
+        //Si la sentencia SQL se ejecuta correctamente
+        if (isset($resultadoConsulta)) {
+            //Filtra el tipo que el usuario desea importar
+            switch ($tipo) {
+                //Si el archivo es XML
+                case 'xml':
+                    //Crea un objeto DOMDocument con dos parámetros, la versión y la codificación del documento
+                    $archivoXML = new DOMDocument("1.0", "utf-8");
+                    //Formatea la salida
+                    $archivoXML->formatOutput = true;
+                    //Crea el nodo Departamentos
+                    $nodoDepartamentos = $archivoXML->appendChild($archivoXML->createElement("Departamentos")); 
+                    $registro = $resultadoConsulta->fetchObject();
+                    while ($registro) {
+                        //Crea un hijo dentro del nodo Departamentos llamado Departamento
+                        $nodoDepartamento = $nodoDepartamentos->appendChild($archivoXML->createElement("Departamento"));
+                        //Dentro de cada nodo Departamento va creando nodos para guardar los datos del departamento
+                        $nodoDepartamento->appendChild($archivoXML->createElement("CodDepartamento", $registro->T02_CodDepartamento));
+                        $nodoDepartamento->appendChild($archivoXML->createElement("DescDepartamento", $registro->T02_DescDepartamento));
+                        $nodoDepartamento->appendChild($archivoXML->createElement("FechaCreacionDepartamento", $registro->T02_FechaCreacionDepartamento));
+                        $nodoDepartamento->appendChild($archivoXML->createElement("FechaBajaDepartamento", $registro->T02_FechaBajaDepartamento));
+                        $nodoDepartamento->appendChild($archivoXML->createElement("VolumenNegocio", $registro->T02_VolumenNegocio));
+                        //Obtiene el siguiente registro de la consulta y avanzamos el puntero
+                        $registro = $resultadoConsulta->fetchObject(); 
+                    }
+                    //Guarda el archivo XML en la carpeta tmp del servidor
+                    $archivoXML->save("tmp/tablaDepartamento.xml"); 
+                    //Tipo del archivo
+                    header('Content-Type: text/xml;charset=utf-8');
+                    //Nombre del archivo de la descarga
+                    header('Content-Disposition: attachment; filename="tablaDepartamento.xml"');
+                    //Ubicación del archivo
+                    readfile("tmp/tablaDepartamento.xml"); 
+                    exit;
+                break;
+                //Si el archivo es JSON
+                case 'json':
+                    //Se declara el array donde almacenaremos los departamentos del archivo json
+                    $aDepartamentos = []; 
+                    //Obtiene el primer registro y avanzamos el puntero al siguiente
+                    $registro = $resultadoConsulta->fetchObject(); 
+                    while ($registro) {
+                        //Añade un array asociativo por cada departamento de la base de datos en el array de departamentos
+                        $aDepartamentos[] = [
+                            'CodDepartamento' => $registro->T02_CodDepartamento,
+                            'DescDepartamento' => $registro->T02_DescDepartamento,
+                            'FechaCreacionDepartamento' => $registro->T02_FechaCreacionDepartamento,
+                            'FechaBajaDepartamento' => $registro->T02_FechaBajaDepartamento,
+                            'VolumenNegocio' => $registro->T02_VolumenNegocio
+                        ];
+                        //Avanza el puntero al siguiente registro
+                        $registro = $resultadoConsulta->fetchObject(); 
+                    }
+                    //Abre el fichero JSON
+                    $fichero = fopen('tmp/tablaDepartamento.json', 'w');
+                    //Escribe el array formateado en el archivo JSON
+                    fwrite($fichero, json_encode($aDepartamentos, JSON_PRETTY_PRINT));
+                    //Cierra el fichero
+                    fclose($fichero); 
+                    //Tipo del archivo
+                    header('Content-Type: application/json;charset=utf-8');
+                    //Nombre del archivo de la descarga
+                    header('Content-Disposition: attachment; filename="tablaDepartamento.json"');
+                    //Ubicación del archivo
+                    readfile("tmp/tablaDepartamento.json"); 
+                    exit;
+                break;
+            }
+        }
+    }
+    
+    /**
+     * Metodo importarDepartamentos()
+     * 
+     * Metodo que sirve para importar departamentos a nuestra base de datos a partir de un archivo,
+     * este archivo puede tener extension xml o json
+     *
+     * @param  string $fichero fichero que queremos importar
+     * @param  string $tipo tipo de archivo que se desea exportar (xml o json)
+     * @return void
+     */
+    public static function importarDepartamentos($fichero, $tipo) {
+        $sentenciaSQL = "Insert into T02_Departamento values (?, ?, ?, ?, ?)";
+        
+        //Filtra el tipo que el usuario desea importar
+        switch ($tipo) {
+            //Si el archivo es XML
+            case 'xml':
+                //Mueve el archivo al tmp con el nombre que deseemos
+                move_uploaded_file($fichero, 'tmp/copiaDeSeguridad.xml'); 
+                //Crea un objeto DOMDocument con dos parámetros, la versión y la codificación del documento
+                $archivoXML = new DOMDocument("1.0", "utf-8");
+                //Carga el documento XML
+                $archivoXML->load('tmp/copiaDeSeguridad.xml');
+                //Guarda el número de departamentos que hay en el archivoXML
+                $numeroDepartamentos = $archivoXML->getElementsByTagName('Departamento')->count();
+                //Recorre los departamentos
+                for ($numeroDepartamento = 0; $numeroDepartamento < $numeroDepartamentos; $numeroDepartamento++) {
+                    //Guarda el valor del elemento del cógido de departamento
+                    $CodDepartamento = $archivoXML->getElementsByTagName("CodDepartamento")->item($numeroDepartamento)->nodeValue;
+                    //Se comprueba que el código de departamento no exista en la BBDD llamando al método validaCodNoExiste
+                    if (!self::validaCodNoExiste($CodDepartamento)) {
+                        //En caso de que esxista se elimina llamando al método BajaFisicaDepartamento para volver a guardarlo actualizado
+                        self::bajaFisicaDepartamento($CodDepartamento);
+                    }
+                    //Guarda el valor del elemento de la descripción del departamento
+                    $DescDepartamento = $archivoXML->getElementsByTagName("DescDepartamento")->item($numeroDepartamento)->nodeValue; 
+                    //Guarda el valor del elemento de la fecha de creación del departamento
+                    $timestampFechaCreacion = $archivoXML->getElementsByTagName("FechaCreacionDepartamento")->item($numeroDepartamento)->nodeValue; 
+                    //Guarda el valor del elemento de la fecha de baja
+                    $timestampFechaBaja = $archivoXML->getElementsByTagName("FechaBajaDepartamento")->item($numeroDepartamento)->nodeValue; 
+                    //Si el elemento de la feha de baja está vacío le asignamos el valor null para poder insertarlo en la BBDD sin errores
+                    if (empty($timestampFechaBaja)) { 
+                        $timestampFechaBaja = null;
+                    }
+                    //Guarda el valor del elemento del volumen de negocio
+                    $VolumenNegocio = $archivoXML->getElementsByTagName("VolumenNegocio")->item($numeroDepartamento)->nodeValue; 
+                    //Asigna al array parametros los diferentes valores de los campos guardados
+                    $parametros = [$CodDepartamento, $DescDepartamento, $timestampFechaCreacion, $VolumenNegocio, $timestampFechaBaja];
+                    //Ejecuta la consulta con los parámetros
+                    DBPDO::ejecutaConsulta($sentenciaSQL, $parametros); 
+                }
+            break;
+            //Si el archivo es JSON
+            case 'json':
+                //Mueve el archivo al tmp con el nombre que se quiera
+                move_uploaded_file($fichero, 'tmp/copiaDeSeguridad.json'); 
+                //Almacena el fichero convertido en string
+                $archivoJson = file_get_contents('tmp/copiaDeSeguridad.json');
+                //Decodifica el archivo JSON
+                $aDepartamentos = json_decode($archivoJson, true); 
+                //Recorre el array con la información obtenida del archivo
+                foreach ($aDepartamentos as $aDepartamento) {
+                    $codDepartamento = $aDepartamento['CodDepartamento'];
+                    //Se comprueba que el código de departamento no exista ya en la BBDD llamando al método validaCodNoExiste
+                    if (!self::validaCodNoExiste($codDepartamento)) {
+                        //Si existe se borra con el método bajaFisicaDepartamento para poder guardarlo actualizado
+                        self::bajaFisicaDepartamento($codDepartamento);
+                    }
+                    //Crea el array de los parámetros que se van a insertar en la BBDD
+                    $parametros = [$aDepartamento['CodDepartamento'],
+                        $aDepartamento['DescDepartamento'],
+                        $aDepartamento['FechaCreacionDepartamento'],
+                        $aDepartamento['VolumenNegocio'],
+                        $aDepartamento['FechaBajaDepartamento']];
+                    //Ejecuta la consulta con los parámetros
+                    DBPDO::ejecutaConsulta($sentenciaSQL, $parametros); 
+                }
+            break;
+        }
+    }
+
 }

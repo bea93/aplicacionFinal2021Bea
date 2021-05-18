@@ -23,7 +23,9 @@ $controladores = [
     "borrarDepartamento" => "controller/cEliminarDepartamento.php",
     "altaDepartamento" => "controller/cAltaDepartamento.php",
     "bajaLogica" => "controller/cBajaLogica.php",
-    "rehabilitar" => "controller/cRehabilitar.php"
+    "rehabilitar" => "controller/cRehabilitar.php",
+    "importar" => "controller/cImportarDepartamentos.php",
+    "exportar" => "controller/cExportarDepartamentos.php"
 ];
 
 $vistas = [
@@ -42,5 +44,7 @@ $vistas = [
     "borrarDepartamento" => "view/vEliminarDepartamento.php",
     "altaDepartamento" => "view/vAltaDepartamento.php",
     "bajaLogica" => "view/vBajaLogica.php",
-    "rehabilitar" => "view/vRehabilitar.php"
+    "rehabilitar" => "view/vRehabilitar.php",
+    "importar" => "view/vImportarDepartamentos.php",
+    "exportar" => "view/vExportarDepartamentos.php"
 ];
