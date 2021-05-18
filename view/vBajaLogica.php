@@ -19,8 +19,8 @@
             <br>
             
             <label for="FechaBaja">Fecha de Baja</label><br>
-            <input type="text" id="FechaBaja" name="FechaBaja" readonly value="<?php echo isset($fechaBaja) ?  $fechaBaja : null; ?>">
-            <br>
+            <input type="text" id="FechaBaja" name="FechaBaja" style="background-color: silver" readonly value="<?php echo (date('d/m/Y H:i:s')); ?>">
+            <p style="color: red; font-weight: bold;">Si pulsa Aceptar este campo se actualizará</p>
         </div>
         <div>
             <button class="logout" type="submit" name='Aceptar'>Aceptar</button>

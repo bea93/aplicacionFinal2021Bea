@@ -7,13 +7,15 @@
     <div>
         <form id="busqueda" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <div>
-                <label for="codigo">Descripción: </label>
-                <input type="search" name="descripcion" placeholder="Descripción" value="<?php
-                if ($descBuscada !== null) {
-                    echo $descBuscada;
-                }
-                ?>"/>
-                <button type="submit" name="Buscar">Buscar</button>
+                <fieldset>
+                    <legend>Busca departamento por descripción</legend>
+                    <input type="search" name="descripcion" placeholder="Descripción" value="<?php
+                    if ($descBuscada !== null) {
+                        echo $descBuscada;
+                    }
+                    ?>"/>
+                    <button type="submit" name="Buscar">Buscar</button><br><br>
+                </fieldset>    
                 <button type="submit" name="Alta">Añadir</button>
             </div>
             <br>
