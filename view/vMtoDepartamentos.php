@@ -15,6 +15,16 @@
                     }
                     ?>"/>
                     <button type="submit" name="Buscar">Buscar</button><br><br>
+                    <input type="radio" id="Todos" name="CriterioBusqueda" value="Todos" <?php echo!isset($criterioBusqueda) ? 'checked' : ($criterioBusqueda == 'Todos' ? 'checked' : null) ?> >
+                    <label for="Todos">Todos</label>
+                    <span>&nbsp;&nbsp;&nbsp;</span>
+
+                    <input type="radio" id="Baja" name="CriterioBusqueda" value="Baja" <?php echo isset($criterioBusqueda) && $criterioBusqueda == 'Baja' ? 'checked' : null ?> >
+                    <label for="Baja">Departamentos dados de baja</label>
+                    <span>&nbsp;&nbsp;&nbsp;</span>
+
+                    <input type="radio" id="Alta" name="CriterioBusqueda" value="Alta" <?php echo isset($criterioBusqueda) && $criterioBusqueda == 'Alta' ? 'checked' : null ?> >
+                    <label for="Alta">Departamentos dados de alta</label>
                 </fieldset>    
                 <button type="submit" name="Alta">Añadir</button>
                 <button type="submit" name="Importar">Importar</button>
@@ -29,7 +39,7 @@
                         <th style="text-align: center;">Volumen negocio</th>
                         <th>Fecha creación</th>
                         <th>Fecha baja</th>
-                        <th colspan="4" style="text-align: center;">Opciones</th>
+                        <th colspan="3" style="text-align: center;">Opciones</th>
                     </tr>
                 </thead>
                 <?php 

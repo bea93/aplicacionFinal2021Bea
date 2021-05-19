@@ -1,4 +1,10 @@
 <?php
+
+//Si no se ha buscado nada
+if (!isset($_SESSION['descripcionBuscada'])) {
+    //La variable de sesión que almacenará la descripción buscada para recordarla al cambiar de página será "", así se mostrarán todos los departamentos
+    $_SESSION['descripcionBuscada'] = "";
+}
 //Si se ha pulsado Volver o Alta, Exportar o Importar se guarda en la variable de sesión 'paginaEnCurso' la ruta del controlador de la página a la que queramos ir
 if (isset($_REQUEST['Volver'])) {
     $_SESSION['paginaEnCurso'] = $controladores['inicio'];
@@ -49,39 +55,43 @@ if (isset($_REQUEST['Rehabilitar'])) {
 
 //Creación de variables
 define("OPCIONAL", 0);
-$error =  null;
+$aErrores = ['Departamento' => null,
+            'CriterioBusqueda' => null
+        ];
 $entradaOK = true;
+//La variable de sesión CriterioBusqueda guarda "Todos" para que salgan todos los departamentos, independientemente de su estado
+$_SESSION['CriterioBusqueda'] = "Todos";
 
-//Si se ha pulsado Buscar validamos la descripción recogida en el formulario llamando a la librería
+//Si se ha pulsado Buscar validamos la información recogida en el formulario llamando a la librería
 if (isset($_REQUEST['Buscar'])) {
-    $error = validacionFormularios::comprobarAlfaNumerico($_REQUEST['descripcion'], 255, 1, OPCIONAL);
+    $aErrores['Departamento'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['descripcion'], 255, 1, OPCIONAL);
+    $aErrores['CriterioBusqueda'] = validacionFormularios::validarElementoEnLista($_REQUEST['CriterioBusqueda'], ['Todos', 'Baja', 'Alta']);
 
-    //Si hay un error $entradaOK pasa a ser false y el campo se vacía
-    if ($error != null) {
-        $entradaOK = false;
-        $_REQUEST[$campo] = "";
+    //Recorre el array de errores y si hay alguno el campo se vacía y $entradaOK pasa a ser false
+    foreach ($aErrores as $campo => $error) {
+        if ($error != null) {
+            $entradaOK = false;
+            $_REQUEST[$campo] = "";
+        }
     }
-    
+
 //Si no se ha pulsado Buscar $entradaOK pasa a false y la descripción a buscar se vacía para que salgan todos los departamentos de la BBDD
 } else {
     $entradaOK = false;
-    $_SESSION['descripcionBuscada'] = "";
 }
-
-
 
 //Si todo ha ido bien la descripción a buscar pasa a ser la introducida en el formulario
 if ($entradaOK) {
     $_SESSION['descripcionBuscada'] = $_REQUEST['descripcion'];
+    $_SESSION['CriterioBusqueda'] = $_REQUEST['CriterioBusqueda'];
 }
 
 //Crea un array con todos los departamentos obtenidos al llamar al método buscaDepartamentosPorDesc
-$arrayDepartamentos = DepartamentoPDO::buscaDepartamentosPorDesc($_SESSION['descripcionBuscada']);
+$arrayDepartamentos = DepartamentoPDO::buscaDepartamentosPorDescYEstado($_SESSION['descripcionBuscada'],$_SESSION['CriterioBusqueda']);
 
-//Guardamos la descripción buscada en una variable de sesión para recordarla
+//Guardamos la descripción y el criterio en variables de sesión para recordarlas
 $descBuscada = $_SESSION['descripcionBuscada'];
-
-
+$criterioBusqueda = $_SESSION['CriterioBusqueda'];
 
 //Guardamos en la variable vistaEnCurso la vista que queremos implementar
 $vistaEnCurso = $vistas['mtoDepartamentos'];

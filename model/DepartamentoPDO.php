@@ -68,7 +68,45 @@ class DepartamentoPDO {
     }
     
     /**
-     * Método altaDepartamentoo()
+     * Método buscaDepartamentosPorDesc()
+     *
+     * Método que obtiene todos los datos departamentos de la base de datos
+     * 
+     * @param  string $busqueda descripción del departamento a buscar
+     * @param  string $estado estado del departamento a buscar(alta o baja)
+     * @return null|\array devuelve un array de objetos de tipo Departamento con los datos guardados en la base de datos y null si no se ha encontrado ninguno
+     */
+    public static function buscaDepartamentosPorDescYEstado($busqueda, $estado) {
+        $aDepartamentos = null;
+        $filtroConsulta = null;
+
+        //Condiciones que se añadirán al query en función del estado del departamento
+        if ($estado == "Baja") {
+            $filtroConsulta = "and T02_FechaBajaDepartamento is not null";
+        } else if ($estado == "Alta") {
+            $filtroConsulta = "and T02_FechaBajaDepartamento is null";
+        }
+        
+        $consulta = "Select * FROM T02_Departamento where T02_DescDepartamento LIKE '%' ? '%' " . (($filtroConsulta != null) ? $filtroConsulta : NULL);
+        $resultado = DBPDO::ejecutaConsulta($consulta, [$busqueda]);
+
+        //Si hay algún resultado lo almacena en la variable
+        if ($resultado->rowCount() > 0) {
+
+            for ($numDepartamento = 0, $departamento = $resultado->fetchObject(); $numDepartamento < $resultado->rowCount(); ++$numDepartamento, $departamento = $resultado->fetchObject()) {
+                // Instanciamos un objeto Departamento con los datos devueltos por la consulta
+                $oDepartamento = new Departamento($departamento->T02_CodDepartamento, $departamento->T02_DescDepartamento, $departamento->T02_FechaCreacionDepartamento, $departamento->T02_VolumenNegocio, $departamento->T02_FechaBajaDepartamento);
+                //Añade el objeto Departamento en el array en la posición indicada
+                $aDepartamentos[$numDepartamento] = $oDepartamento;
+            }
+        }
+
+        //Devuelve el array de departamentos
+        return $aDepartamentos;
+    }
+
+    /**
+     * Método altaDepartamento()
      * 
      * Método que da de alta en la base de datos a un nuevo departamento
      * 
