@@ -18,8 +18,12 @@
             <input type="text" size="5" id="VolumenNegocio" name="VolumenNegocio" readonly value="<?php echo $volumen; ?>">
             <br>
             
-            <label for="FechaBaja">Fecha de Baja</label><br>
+            <label for="FechaBaja">Fecha de Baja Actual</label><br>
             <input type="text" size="10" id="FechaBaja" name="FechaBaja" style="background-color: silver" readonly value="<?php echo isset($fechaBaja) ?  $fechaBaja : null; ?>">
+            <br>
+            
+            <label for="FechaBaja">Fecha de Baja Actualizada</label><br>
+            <input type="text" size="10" id="FechaBaja" name="FechaBaja" style="background-color: silver" readonly value="<?php echo null; ?>">
             <p style="color: red; font-weight: bold;">Si pulsa Aceptar este campo se actualizará</p>
         </div>
         <div>

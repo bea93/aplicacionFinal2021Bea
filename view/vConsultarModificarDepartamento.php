@@ -21,7 +21,7 @@
             <br>
             
             <label for="FechaBaja">Fecha de Baja</label><br>
-            <input type="text" readonly id="FechaBaja" name="FechaBaja" value="<?php echo isset($fechaBaja) ?  $fechaBaja : null; ?>">
+            <input type="text" class="desactivado" readonly id="FechaBaja" name="FechaBaja" value="<?php echo isset($fechaBaja) ?  $fechaBaja : null; ?>">
             <br>
         </div>
         <div>
