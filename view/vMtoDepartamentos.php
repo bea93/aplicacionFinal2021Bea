@@ -8,23 +8,26 @@
         <form id="busqueda" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <div>
                 <fieldset>
-                    <legend>Busca departamento por descripción</legend>
-                    <input type="search" name="descripcion" placeholder="Descripción" value="<?php
+                    <label class="formBuscar" for="descripcion">Busca departamento por descripción</label>
+                    <hr>
+                    <input type="search" name="descripcion" id="descripcion" class="formBuscar" placeholder="Descripción" value="<?php
                     if ($descBuscada !== null) {
                         echo $descBuscada;
                     }
                     ?>"/>
-                    <button type="submit" name="Buscar">Buscar</button><br><br>
-                    <input type="radio" id="Todos" name="CriterioBusqueda" value="Todos" <?php echo!isset($criterioBusqueda) ? 'checked' : ($criterioBusqueda == 'Todos' ? 'checked' : null) ?> >
+                    <button type="submit" name="Buscar" class="formBuscar">Buscar</button>
+                    <br>
+                    <input type="radio" id="Todos" class="formBuscar" name="CriterioBusqueda" value="Todos" <?php echo!isset($criterioBusqueda) ? 'checked' : ($criterioBusqueda == 'Todos' ? 'checked' : null) ?> >
                     <label for="Todos">Todos</label>
                     <span>&nbsp;&nbsp;&nbsp;</span>
 
-                    <input type="radio" id="Baja" name="CriterioBusqueda" value="Baja" <?php echo isset($criterioBusqueda) && $criterioBusqueda == 'Baja' ? 'checked' : null ?> >
+                    <input type="radio" id="Baja" class="formBuscar" name="CriterioBusqueda" value="Baja" <?php echo isset($criterioBusqueda) && $criterioBusqueda == 'Baja' ? 'checked' : null ?> >
                     <label for="Baja">Departamentos dados de baja</label>
                     <span>&nbsp;&nbsp;&nbsp;</span>
 
-                    <input type="radio" id="Alta" name="CriterioBusqueda" value="Alta" <?php echo isset($criterioBusqueda) && $criterioBusqueda == 'Alta' ? 'checked' : null ?> >
+                    <input type="radio" id="Alta" class="formBuscar" name="CriterioBusqueda" value="Alta" <?php echo isset($criterioBusqueda) && $criterioBusqueda == 'Alta' ? 'checked' : null ?> >
                     <label for="Alta">Departamentos dados de alta</label>
+                    <hr>
                 </fieldset>    
                 <button type="submit" name="Alta">Añadir</button>
                 <button type="submit" name="Importar">Importar</button>
@@ -87,6 +90,17 @@
                     ?>
                     <h4 style="color: red">No se ha encontrado departamentos con esa descripción</h4>
                 <?php } ?>
+            </table>
+        </form>
+        <form id="formularioPaginacion" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <table>
+                <tr>
+                    <td><button <?php echo ($paginaActual == 1 ? "hidden" : null); ?> type="submit" value="1" name="paginaInicial"><i class="fas fa-arrow-left"></i></button></td>
+                    <td><button <?php echo ($paginaActual == 1 ? "hidden" : null); ?> type="submit" value="<?php echo $paginaActual - 1; ?>" name="retrocederPagina"><i class="fas fa-arrow-left"></i></button></td>
+                    <td><?php echo $paginaActual . " de " . $paginasTotales; ?></td>
+                    <td><button <?php echo ($paginaActual >= $paginasTotales ? "hidden" : null); ?> type="submit" value="<?php echo $paginaActual + 1; ?>" name="avanzarPagina"><i class="fas fa-arrow-right"></i></button></td>
+                    <td><button <?php echo ($paginaActual >= $paginasTotales ? "hidden" : null); ?> type="submit" value="<?php echo $paginasTotales ?>" name="paginaFinal"><i class="fas fa-arrow-right"></i></button></td>
+                </tr>
             </table>
         </form>
     </div>
