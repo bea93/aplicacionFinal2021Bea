@@ -12,10 +12,13 @@ if (isset($_REQUEST['Cancelar'])) {
 $oDepartamento = DepartamentoPDO::buscaDepartamentoPorCod($_SESSION['codDepartamento']);
 
 //Accedemos a los atributos del objeto y los almacenamos en variables
-$codDep = $_SESSION['codDepartamento'];
+$codDep = $oDepartamento->getCodDepartamento();
 $descDep = $oDepartamento->getDescDepartamento();
 $volumen = $oDepartamento->getVolumenNegocio();
 $fechaCreacion = $oDepartamento->getFechaCreacion();
+if (!is_null($oDepartamento->getFechaBaja())) {
+    $fechaBaja = date('d/m/Y', $oDepartamento->getFechaBaja());
+}
 
 //Declaración y definición de variables
 define("OBLIGATORIO", 1); 
@@ -27,7 +30,7 @@ $aErrores = [
 
 //Si se ha pulsado Aceptar se validan los campos llamando a los métodos necesarios de la librería
 if (isset($_REQUEST["Aceptar"])) {
-    $aErrores['DescDepartamento'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['DescDepartamento'], 35, 3, OBLIGATORIO);
+    $aErrores['DescDepartamento'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['DescDepartamento'], 255, 3, OBLIGATORIO);
     $aErrores['VolumenNegocio'] = validacionFormularios::comprobarEntero($_REQUEST['VolumenNegocio'], PHP_INT_MAX, 1, OBLIGATORIO);
 
     //Recorremos el array de errores y, en caso de que haya alguno, $entradaOk pasa a ser false y se vacía el campo con el error

@@ -20,16 +20,16 @@ if (!is_null($oDepartamento->getFechaBaja())) {
     $fechaBaja = date('d/m/Y', $oDepartamento->getFechaBaja());
 }
 
-//Si se ha pulsado Aceptar se llama al método bajaFisicaDepartamento, se le pasa el código del departamento a borrar y se redirige a la ventana mtoDepartamentos
+//Si se ha pulsado Aceptar llama al método bajaLogicaDepartamento y se le pasa el código del departamento para que se actualicen en la BBDD y vuelve a la ventana mtoDepartamentos
 if (isset($_REQUEST["Aceptar"])) {
-    DepartamentoPDO::bajaFisicaDepartamento($_SESSION['codDepartamento']);
-    $_SESSION['paginaEnCurso'] = $controladores['mtoDepartamentos'];
+    DepartamentoPDO::rehabilitaDepartamento($_SESSION['codDepartamento']);
+   $_SESSION['paginaEnCurso'] = $controladores['mtoDepartamentos'];
     header('Location: index.php');
     exit; 
 }
 
 //Guardamos en la variable vistaEnCurso la vista que queremos implementar
-$vistaEnCurso = $vistas['borrarDepartamento'];
+$vistaEnCurso = $vistas['rehabilitar'];
 require_once $vistas['layout'];
 
-$_SESSION['paginaAnterior'] = $controladores['borrarDepartamento'];
+$_SESSION['paginaAnterior'] = $controladores['rehabilitar'];

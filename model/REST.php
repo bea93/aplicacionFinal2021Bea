@@ -46,11 +46,9 @@ class REST {
             //Si la respuesta HTTP es 200 la petición se ha podido hacer y se guarda el array de resultado
             $resultado = file_get_contents("https://rickandmortyapi.com/api/character/" . $number . "/", true);
             
-            //Si resultado no está bien o no se ha introducido número se lanza una excepción
-            if ($resultado == false || $number == null) {
-                throw new Exception("Error en la introducción de datos");
-            } else {
-                //Si todo ha ido bien se crea un array para almacenar los datos del personaje y se devuelve
+            //Si todo ha ido bien se crea un array para almacenar los datos del personaje y se devuelve
+            if ($resultado !== false || $number !== null) {
+                
                 $personaje = json_decode($resultado, true);
                 $respuesta[0] = true;
                 $respuesta[1] = $personaje;

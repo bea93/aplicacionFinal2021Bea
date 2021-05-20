@@ -20,7 +20,12 @@ $controladores = [
     "rest" => "controller/cREST.php",
     "mtoDepartamentos" => "controller/cMtoDepartamentos.php",
     "modificarDepartamento" => "controller/cConsultarModificarDepartamento.php",
-    "borrarDepartamento" => "controller/cEliminarDepartamento.php"
+    "borrarDepartamento" => "controller/cEliminarDepartamento.php",
+    "altaDepartamento" => "controller/cAltaDepartamento.php",
+    "bajaLogica" => "controller/cBajaLogica.php",
+    "rehabilitar" => "controller/cRehabilitar.php",
+    "importar" => "controller/cImportarDepartamentos.php",
+    "exportar" => "controller/cExportarDepartamentos.php"
 ];
 
 $vistas = [
@@ -36,5 +41,10 @@ $vistas = [
     "rest" => "view/vREST.php",
     "mtoDepartamentos" => "view/vMtoDepartamentos.php",
     "modificarDepartamento" => "view/vConsultarModificarDepartamento.php",
-    "borrarDepartamento" => "view/vEliminarDepartamento.php"
+    "borrarDepartamento" => "view/vEliminarDepartamento.php",
+    "altaDepartamento" => "view/vAltaDepartamento.php",
+    "bajaLogica" => "view/vBajaLogica.php",
+    "rehabilitar" => "view/vRehabilitar.php",
+    "importar" => "view/vImportarDepartamentos.php",
+    "exportar" => "view/vExportarDepartamentos.php"
 ];

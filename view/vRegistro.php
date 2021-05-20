@@ -1,4 +1,4 @@
-<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Inicio</h2>
+<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Registrar usuario</h2>
 
 <form name="singup" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
