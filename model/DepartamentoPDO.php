@@ -54,7 +54,6 @@ class DepartamentoPDO {
 
         //Si hay algún resultado lo almacena en la variable
         if ($resultado->rowCount() > 0) {
-           
             for ($numDepartamento = 0, $departamento = $resultado->fetchObject(); $numDepartamento < $resultado->rowCount(); ++$numDepartamento, $departamento = $resultado->fetchObject()) {
                 // Instanciamos un objeto Departamento con los datos devueltos por la consulta
                 $oDepartamento = new Departamento($departamento->T02_CodDepartamento, $departamento->T02_DescDepartamento, $departamento->T02_FechaCreacionDepartamento, $departamento->T02_VolumenNegocio, $departamento->T02_FechaBajaDepartamento);
@@ -92,7 +91,6 @@ class DepartamentoPDO {
 
         //Si hay algún resultado lo almacena en la variable
         if ($resultado->rowCount() > 0) {
-
             for ($numDepartamento = 0, $departamento = $resultado->fetchObject(); $numDepartamento < $resultado->rowCount(); ++$numDepartamento, $departamento = $resultado->fetchObject()) {
                 // Instanciamos un objeto Departamento con los datos devueltos por la consulta
                 $oDepartamento = new Departamento($departamento->T02_CodDepartamento, $departamento->T02_DescDepartamento, $departamento->T02_FechaCreacionDepartamento, $departamento->T02_VolumenNegocio, $departamento->T02_FechaBajaDepartamento);
@@ -111,8 +109,8 @@ class DepartamentoPDO {
      * 
      * @param  string $busqueda descripción del departamento a buscar
      * @param  string $estado estado del departamento a buscar(alta o baja)
-     * @param  string $numPaginaActual descripción del departamento a buscar
-     * @param  string $numMaxDepartamentos estado del departamento a buscar(alta o baja)
+     * @param  string $numPaginaActual página de resultados en la que nos encontramos
+     * @param  string $numMaxDepartamentos número de departamentos por página que vamos a mostrar
      * @return null|\array devuelve un array de objetos de tipo Departamento con los datos guardados en la base de datos y null si no se ha encontrado ninguno
      */
     public static function buscaDepartamentosPorDescEstadoYPagina($busqueda, $estado,  $numPaginaActual, $numMaxDepartamentos) {
@@ -127,12 +125,12 @@ class DepartamentoPDO {
             $filtroConsulta = "AND T02_FechaBajaDepartamento IS null";
         }
         
+        //Seleccionamos todos los datos de los departamentos que coincidan con la descripción, el filtro del estado y limitamos los que se van a mostrar a 5 por página
         $consulta = "SELECT * FROM T02_Departamento WHERE T02_DescDepartamento LIKE '%' ? '%' " . (($filtroConsulta != null) ? $filtroConsulta : NULL) . " LIMIT " . (($numPaginaActual - 1) * $numMaxDepartamentos) . ',' . $numMaxDepartamentos;
         $resultado = DBPDO::ejecutaConsulta($consulta, [$busqueda]);
 
         //Si hay algún resultado lo almacena en la variable
         if ($resultado->rowCount() > 0) {
-
             for ($numDepartamento = 0, $departamento = $resultado->fetchObject(); $numDepartamento < $resultado->rowCount(); ++$numDepartamento, $departamento = $resultado->fetchObject()) {
                 // Instanciamos un objeto Departamento con los datos devueltos por la consulta
                 $oDepartamento = new Departamento($departamento->T02_CodDepartamento, $departamento->T02_DescDepartamento, $departamento->T02_FechaCreacionDepartamento, $departamento->T02_VolumenNegocio, $departamento->T02_FechaBajaDepartamento);
@@ -141,18 +139,23 @@ class DepartamentoPDO {
             }
         }
         
+        //Obtenemos el número total de registros que cumplan con los requisitos anteriores: descripción y filtro
         $sentenciaSQLNumDepartamentos = "Select count(*) FROM T02_Departamento where T02_DescDepartamento LIKE '%' ? '%' " . (($filtroConsulta != null) ? $filtroConsulta : NULL);
-        $resultadoConsultaNumDepartamentos = DBPDO::ejecutaConsulta($sentenciaSQLNumDepartamentos, [$busqueda]); // almacenamos en la variable $resultadoConsultaNumDepartamentos el resultado devuelto por la consulta
-        $numDepartamentos = $resultadoConsultaNumDepartamentos->fetch(); // almacenamos el la variable $numDepartamentos el numero de departamentos devuelto por la consulta
+        $resultadoConsultaNumDepartamentos = DBPDO::ejecutaConsulta($sentenciaSQLNumDepartamentos, [$busqueda]);
+        //Almacenamos en una variable el resultado de la consulta
+        $numDepartamentos = $resultadoConsultaNumDepartamentos->fetch();
 
-        if ($numDepartamentos[0] % $numMaxDepartamentos == 0) { // si devuelve un numero par
-            $numPaginasTotal = ($numDepartamentos[0] / $numMaxDepartamentos); // el numero de paginas totales sera el resultado obtenido de dividir el numero de departamentos devuelto por la consulta y el numero maximo de paginas
-        } else { // si devuelve un numero impar
-            $numPaginasTotal = (floor($numDepartamentos[0] / $numMaxDepartamentos) + 1); // el numero de paginas totales sera el resultado obtenido de dividir el numero de departamentos devuelto por la consulta y el numero maximo de paginas redondeado a la baja mas uno
+        //Si el resultado de dividir el número de departamentos entre el número máximo de departamentos por página es par se guarda en una variable tal cual
+        if ($numDepartamentos % $numMaxDepartamentos == 0) {
+            $numPaginasTotal = ($numDepartamentos[0] / $numMaxDepartamentos); 
+        } else { //Si no lo es se redondea a la baja y se le suma uno
+            $numPaginasTotal = (floor($numDepartamentos[0] / $numMaxDepartamentos) + 1);
         }
 
-        settype($numPaginasTotal, "integer"); // convertimos el numero de paginas totales a integer para eliminar los decimales
-        //Devuelve el array de departamentos
+        //Convertimos el numero de paginas totales a integer para eliminar los decimales
+        settype($numPaginasTotal, "integer");
+        
+        //Devuelve el array de departamentos y el número de páginas totales
         return [$aDepartamentos, $numPaginasTotal];
 
     }

@@ -1,10 +1,14 @@
 <?php
 
-//Si no se ha buscado nada
+//Por defecto descripcionBuscada será "" para que muestre todos los departamentos, la paginaActual será la 1 y el CriterioBusqueda "todos"
 if (!isset($_SESSION['descripcionBuscada'])) {
-    //La variable de sesión que almacenará la descripción buscada para recordarla al cambiar de página será "", así se mostrarán todos los departamentos
     $_SESSION['descripcionBuscada'] = "";
 }
+if (!isset($_SESSION['PaginaActual'])) {
+    $_SESSION['PaginaActual'] = 1;
+}
+$_SESSION['CriterioBusqueda'] = "Todos";
+
 //Si se ha pulsado Volver o Alta, Exportar o Importar se guarda en la variable de sesión 'paginaEnCurso' la ruta del controlador de la página a la que queramos ir
 if (isset($_REQUEST['Volver'])) {
     $_SESSION['paginaEnCurso'] = $controladores['inicio'];
@@ -53,28 +57,24 @@ if (isset($_REQUEST['Rehabilitar'])) {
     exit;
 }
 
-if (!isset($_SESSION['PaginaActual'])) {//Si no está establecida la pagina actual en la sesion
-    $_SESSION['PaginaActual'] = 1; //Establecemos la página actual a 1
+//Botones para navegar entre las páginas
+if (isset($_REQUEST['avanzarPagina'])) {
+    $_SESSION['PaginaActual'] = $_REQUEST['avanzarPagina'];
+} else if (isset($_REQUEST['retrocederPagina'])) {
+    $_SESSION['PaginaActual'] = $_REQUEST['retrocederPagina'];
+} else if (isset($_REQUEST['paginaInicial'])) {
+    $_SESSION['PaginaActual'] = $_REQUEST['paginaInicial'];
+} else if (isset($_REQUEST['paginaFinal'])) {
+    $_SESSION['PaginaActual'] = $_REQUEST['paginaFinal'];
 }
 
-if (isset($_REQUEST['avanzarPagina'])) {//Si pulsa el botón de avanzar pagina
-    $_SESSION['PaginaActual'] = $_REQUEST['avanzarPagina']; //el numero de la pagina es igual al valor de avanzarPagina
-} else if (isset($_REQUEST['retrocederPagina'])) {//Si pulsa el botón de retroceder pagina
-    $_SESSION['PaginaActual'] = $_REQUEST['retrocederPagina']; //el numero de la pagina es igual al valor de retrocederPagina
-} else if (isset($_REQUEST['paginaInicial'])) {//Si pulsa el botón de pagina inicial
-    $_SESSION['PaginaActual'] = $_REQUEST['paginaInicial']; //el numero de la pagina es igual al valor de paginaInicial
-} else if (isset($_REQUEST['paginaFinal'])) {//Si pulsa el botón de pagina final
-    $_SESSION['PaginaActual'] = $_REQUEST['paginaFinal']; //el numero de la pagina es igual al valor de paginaFinal
-}
-
-//Creación de variables
+//Creación de variables para la validación de datos
 define("OPCIONAL", 0);
 $aErrores = ['Departamento' => null,
             'CriterioBusqueda' => null
         ];
 $entradaOK = true;
-//La variable de sesión CriterioBusqueda guarda "Todos" para que salgan todos los departamentos, independientemente de su estado
-$_SESSION['CriterioBusqueda'] = "Todos";
+
 
 //Si se ha pulsado Buscar validamos la información recogida en el formulario llamando a la librería
 if (isset($_REQUEST['Buscar'])) {
@@ -94,7 +94,7 @@ if (isset($_REQUEST['Buscar'])) {
     $entradaOK = false;
 }
 
-//Si todo ha ido bien la descripción a buscar pasa a ser la introducida en el formulario
+//Si todo ha ido bien
 if ($entradaOK) {
     $_SESSION['descripcionBuscada'] = $_REQUEST['descripcion'];
     $_SESSION['CriterioBusqueda'] = $_REQUEST['CriterioBusqueda'];
@@ -104,12 +104,15 @@ if ($entradaOK) {
 //Crea un array con todos los departamentos obtenidos al llamar al método buscaDepartamentosPorDesc
 $aResultadoBusqueda = DepartamentoPDO::buscaDepartamentosPorDescEstadoYPagina($_SESSION['descripcionBuscada'],$_SESSION['CriterioBusqueda'],$_SESSION['PaginaActual'], 5);
 
-//Guardamos la descripción y el criterio en variables de sesión para recordarlas
+//Guardamos la descripción, el criterio y el número de página actual en variables de sesión para recordarlas
 $descBuscada = $_SESSION['descripcionBuscada'];
 $criterioBusqueda = $_SESSION['CriterioBusqueda'];
+$paginaActual = $_SESSION['PaginaActual'];
+
+
 $aDepartamentos = $aResultadoBusqueda[0];
 $paginasTotales = $aResultadoBusqueda[1];
-$paginaActual = $_SESSION['PaginaActual'];
+
 
 //Guardamos en la variable vistaEnCurso la vista que queremos implementar
 $vistaEnCurso = $vistas['mtoDepartamentos'];

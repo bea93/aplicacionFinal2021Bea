@@ -46,11 +46,11 @@
                     </tr>
                 </thead>
                 <?php 
-                if (isset($arrayDepartamentos)) { 
+                if (isset($aDepartamentos)) { 
                     ?>
                     <tbody>
                         <?php
-                        foreach ($arrayDepartamentos as $departamento => $oDepartamento) {
+                        foreach ($aDepartamentos as $departamento => $oDepartamento) {
                             $codigoDep = $oDepartamento->getCodDepartamento();
                             
                             if (is_null($oDepartamento->getFechaBaja())) {
@@ -95,11 +95,11 @@
         <form id="formularioPaginacion" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <table>
                 <tr>
-                    <td><button <?php echo ($paginaActual == 1 ? "hidden" : null); ?> type="submit" value="1" name="paginaInicial"><i class="fas fa-arrow-left"></i></button></td>
-                    <td><button <?php echo ($paginaActual == 1 ? "hidden" : null); ?> type="submit" value="<?php echo $paginaActual - 1; ?>" name="retrocederPagina"><i class="fas fa-arrow-left"></i></button></td>
+                    <td><button <?php echo ($paginaActual == 1 ? "hidden" : null); ?> type="submit" value="1" name="paginaInicial"><i class="fas fa-angle-double-left"></i></button></td>
+                    <td><button <?php echo ($paginaActual == 1 ? "hidden" : null); ?> type="submit" value="<?php echo $paginaActual - 1; ?>" name="retrocederPagina"><i class="fas fa-angle-left"></i></button></td>
                     <td><?php echo $paginaActual . " de " . $paginasTotales; ?></td>
-                    <td><button <?php echo ($paginaActual >= $paginasTotales ? "hidden" : null); ?> type="submit" value="<?php echo $paginaActual + 1; ?>" name="avanzarPagina"><i class="fas fa-arrow-right"></i></button></td>
-                    <td><button <?php echo ($paginaActual >= $paginasTotales ? "hidden" : null); ?> type="submit" value="<?php echo $paginasTotales ?>" name="paginaFinal"><i class="fas fa-arrow-right"></i></button></td>
+                    <td><button <?php echo ($paginaActual >= $paginasTotales ? "hidden" : null); ?> type="submit" value="<?php echo $paginaActual + 1; ?>" name="avanzarPagina"><i class="fas fa-angle-right"></i></button></td>
+                    <td><button <?php echo ($paginaActual >= $paginasTotales ? "hidden" : null); ?> type="submit" value="<?php echo $paginasTotales ?>" name="paginaFinal"><i class="fas fa-angle-double-right"></i></button></td>
                 </tr>
             </table>
         </form>
