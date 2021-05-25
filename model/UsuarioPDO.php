@@ -219,11 +219,40 @@ class UsuarioPDO{
         
         //Si la consulta me devuelve algún resultado lo guardo en una variable para instanciar un nuevo objeto Usuario con esos datos
         if($resultadoDatosUsuario->rowCount()>0){
-            $oUsuarioConsulta = $resultadoDatosUsuario->fetchObject();
-            $oUsuario = new Usuario($oUsuarioConsulta->T01_CodUsuario, $oUsuarioConsulta->T01_Password, $oUsuarioConsulta->T01_DescUsuario, $oUsuarioConsulta->T01_NumConexiones, $oUsuarioConsulta->T01_FechaHoraUltimaConexion, $oUsuarioConsulta->T01_Perfil, $oUsuarioConsulta->T01_ImagenUsuario);
+            $oUsuario = $resultadoDatosUsuario->fetchObject();
+            $oUsuario = new Usuario($oUsuario->T01_CodUsuario, $oUsuario->T01_Password, $oUsuario->T01_DescUsuario, $oUsuario->T01_NumConexiones, $oUsuario->T01_FechaHoraUltimaConexion, $oUsuario->T01_Perfil, $oUsuario->T01_ImagenUsuario);
         }
 
         return $oUsuario;
 
     }
+    
+    /**
+     * Método buscaUsuariosPorDesc()
+     *
+     * Método que obtiene todos los datos usuarios de la base de datos basándose en su descripción
+     * 
+     * @param  string $busqueda descripción del usuario a buscar
+     * @return null|\array devuelve un array de objetos de tipo Usuario con los datos guardados en la base de datos y null si no se ha encontrado ninguno
+     */
+    public static function buscaUsuariosPorDesc($busqueda) {
+        $aUsuarios = null;
+
+        $consulta = "SELECT * FROM T01_Usuario WHERE T01_DescUsuario LIKE CONCAT('%', ?, '%')";
+        $resultado = DBPDO::ejecutaConsulta($consulta, [$busqueda]);
+
+        //Si hay algún resultado lo almacena en la variable
+        if ($resultado->rowCount() > 0) {
+            for ($numUsuario = 0, $usuario = $resultado->fetchObject(); $numUsuario < $resultado->rowCount(); ++$numUsuario, $usuario = $resultado->fetchObject()) {
+                // Instanciamos un objeto Departamento con los datos devueltos por la consulta
+                $oUsuario = new Usuario($usuario->T01_CodUsuario, $usuario->T01_Password, $usuario->T01_DescUsuario, $usuario->T01_NumConexiones, $usuario->T01_FechaHoraUltimaConexion, $usuario->T01_Perfil, $usuario->T01_ImagenUsuario);
+                //Añade el objeto Departamento en el array en la posición indicada
+                $aUsuarios[$numUsuario] = $oUsuario;
+            }
+        }
+
+        //Devuelve el array de departamentos
+        return $aUsuarios;
+    }
+
 }

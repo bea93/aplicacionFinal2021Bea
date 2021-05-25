@@ -25,7 +25,8 @@ $controladores = [
     "bajaLogica" => "controller/cBajaLogica.php",
     "rehabilitar" => "controller/cRehabilitar.php",
     "importar" => "controller/cImportarDepartamentos.php",
-    "exportar" => "controller/cExportarDepartamentos.php"
+    "exportar" => "controller/cExportarDepartamentos.php",
+    "mtoUsuarios" => "controller/cMtoUsuarios.php"
 ];
 
 $vistas = [
@@ -46,5 +47,6 @@ $vistas = [
     "bajaLogica" => "view/vBajaLogica.php",
     "rehabilitar" => "view/vRehabilitar.php",
     "importar" => "view/vImportarDepartamentos.php",
-    "exportar" => "view/vExportarDepartamentos.php"
+    "exportar" => "view/vExportarDepartamentos.php",
+    "mtoUsuarios" => "view/vMtoUsuarios.php"
 ];

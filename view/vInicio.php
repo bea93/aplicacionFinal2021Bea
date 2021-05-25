@@ -24,5 +24,11 @@
         <button class="logout" type="submit" name='detalle'>Detalle</button>
         <button class="logout" id="mtoDep" type="submit" name='mtoDepartamentos'>Mto Departamentos</button>
         <button class="logout" id="rest" type="submit" name='rest'>REST</button>
+        <?php
+        //Si el usuario no tiene una imagen se le pone una por defecto
+        if ($perfilUsuario == "administrador") {
+            echo '<button class="logout" id="mtoUsuarios" type="submit" name="mtoUsuarios">Mto Usuarios</button>';
+        } 
+        ?>
     </form>
 </div>

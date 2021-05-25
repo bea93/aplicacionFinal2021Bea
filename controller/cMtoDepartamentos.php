@@ -21,12 +21,12 @@ if (isset($_REQUEST['Alta'])) {
     exit;
 }
 if (isset($_REQUEST['Importar'])) {
-    $_SESSION['paginaEnCurso'] = $controladores['importar'];
+    $_SESSION['paginaEnCurso'] = $controladores['wip'];
     header('Location: index.php');
     exit;
 }
 if (isset($_REQUEST['Exportar'])) {
-    $_SESSION['paginaEnCurso'] = $controladores['exportar'];
+    $_SESSION['paginaEnCurso'] = $controladores['wip'];
     header('Location: index.php');
     exit;
 }
