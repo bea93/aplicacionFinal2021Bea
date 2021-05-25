@@ -86,7 +86,7 @@ class DepartamentoPDO {
             $filtroConsulta = "AND T02_FechaBajaDepartamento IS null";
         }
         
-        $consulta = "SELECT * FROM T02_Departamento WHERE T02_DescDepartamento LIKE '%' ? '%' " . (($filtroConsulta != null) ? $filtroConsulta : NULL);
+        $consulta = "SELECT * FROM T02_Departamento WHERE T02_DescDepartamento LIKE '%' ? '%' " . $filtroConsulta;
         $resultado = DBPDO::ejecutaConsulta($consulta, [$busqueda]);
 
         //Si hay algún resultado lo almacena en la variable
@@ -126,7 +126,7 @@ class DepartamentoPDO {
         }
         
         //Seleccionamos todos los datos de los departamentos que coincidan con la descripción, el filtro del estado y limitamos los que se van a mostrar a 5 por página
-        $consulta = "SELECT * FROM T02_Departamento WHERE T02_DescDepartamento LIKE '%' ? '%' " . (($filtroConsulta != null) ? $filtroConsulta : NULL) . " LIMIT " . (($numPaginaActual - 1) * $numMaxDepartamentos) . ',' . $numMaxDepartamentos;
+        $consulta = "SELECT * FROM T02_Departamento WHERE T02_DescDepartamento LIKE '%' ? '%' " . $filtroConsulta . " LIMIT " . (($numPaginaActual - 1) * $numMaxDepartamentos) . ',' . $numMaxDepartamentos;
         $resultado = DBPDO::ejecutaConsulta($consulta, [$busqueda]);
 
         //Si hay algún resultado lo almacena en la variable
@@ -140,7 +140,7 @@ class DepartamentoPDO {
         }
         
         //Obtenemos el número total de registros que cumplan con los requisitos anteriores: descripción y filtro
-        $sentenciaSQLNumDepartamentos = "Select count(*) FROM T02_Departamento where T02_DescDepartamento LIKE '%' ? '%' " . (($filtroConsulta != null) ? $filtroConsulta : NULL);
+        $sentenciaSQLNumDepartamentos = "SELECT COUNT(*) FROM T02_Departamento WHERE T02_DescDepartamento LIKE '%' ? '%' " . $filtroConsulta;
         $resultadoConsultaNumDepartamentos = DBPDO::ejecutaConsulta($sentenciaSQLNumDepartamentos, [$busqueda]);
         //Almacenamos en una variable el resultado de la consulta
         $numDepartamentos = $resultadoConsultaNumDepartamentos->fetch();
