@@ -4,7 +4,7 @@ $mysqlDatabaseName ='dbs272025';
 $mysqlUserName ='dbu63905';
 $mysqlPassword ='Covid1234$';
 $mysqlHostName ='db5000278681.hosting-data.io';
-$mysqlImportFilename ='CreaDAW213AplicacionFinalExplotacion';
+$mysqlImportFilename ='CreaDAW213AplicacionFinalExplotacion.sql';
 
 //Por favor, no haga ningún cambio en los siguientes puntos
 //Importación de la base de datos y salida del status
