@@ -46,10 +46,6 @@
                                 <td><?php echo $oUsuario->getDescUsuario(); ?></td>
                                 <td style="text-align: center;"><?php echo $oUsuario->getNumConexiones(); ?></td>
                                 <td><?php echo $fechaUltimaConexion; ?></td>
-                                <td>
-                                    <button class="mtoDepartamentos" type="submit" name="Eliminar" value="<?php echo $codUsuario ?>"><i class='far fa-trash-alt'></i></button>                           
-                                </td>
-                                
                             </tr>
                             <tr>
                                 <td></td>
@@ -60,19 +56,8 @@
                     <?php
                 } else {
                     ?>
-                    <h4 style="color: red">No se ha encontrado departamentos con esa descripción</h4>
+                    <h4 style="color: red">No se han encontrado usuarios con esa descripción</h4>
                 <?php } ?>
             </table>
         </form>
-<!--        <form id="formularioPaginacion" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <table>
-                <tr>
-                    <td><button <?php echo ($paginaActual == 1 ? "hidden" : null); ?> type="submit" value="1" name="paginaInicial"><i class="fas fa-angle-double-left"></i></button></td>
-                    <td><button <?php echo ($paginaActual == 1 ? "hidden" : null); ?> type="submit" value="<?php echo $paginaActual - 1; ?>" name="retrocederPagina"><i class="fas fa-angle-left"></i></button></td>
-                    <td><?php echo $paginaActual . " de " . $paginasTotales; ?></td>
-                    <td><button <?php echo ($paginaActual >= $paginasTotales ? "hidden" : null); ?> type="submit" value="<?php echo $paginaActual + 1; ?>" name="avanzarPagina"><i class="fas fa-angle-right"></i></button></td>
-                    <td><button <?php echo ($paginaActual >= $paginasTotales ? "hidden" : null); ?> type="submit" value="<?php echo $paginasTotales ?>" name="paginaFinal"><i class="fas fa-angle-double-right"></i></button></td>
-                </tr>
-            </table>
-        </form>-->
     </div>
